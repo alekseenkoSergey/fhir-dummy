@@ -3,9 +3,13 @@ package org.example.fhirdummy;
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.rest.client.api.ServerValidationModeEnum;
 import com.sun.net.httpserver.HttpServer;
+import org.example.fhirdummy.client.DeviceClient;
+import org.example.fhirdummy.client.PatientClient;
 import org.example.fhirdummy.client.FhirResourceClient;
 import org.example.fhirdummy.client.ObservationClient;
 import org.example.fhirdummy.configuration.FhirConfiguration;
+import org.example.fhirdummy.controller.DeviceController;
+import org.example.fhirdummy.controller.PatientController;
 import org.example.fhirdummy.controller.FhirController;
 import org.example.fhirdummy.controller.ObservationController;
 import org.junit.jupiter.api.AfterEach;
@@ -47,9 +51,12 @@ class FhirControllerTests {
         FhirContext context = new FhirConfiguration().fhirContext();
         context.getRestfulClientFactory().setServerValidationMode(ServerValidationModeEnum.NEVER);
         var client = context.newRestfulGenericClient("http://127.0.0.1:" + server.getAddress().getPort());
+        var resourceClient = new FhirResourceClient(client);
         mvc = MockMvcBuilders.standaloneSetup(
-                new FhirController(new FhirResourceClient(client), context),
-                new ObservationController(new ObservationClient(client), new FhirResourceClient(client), context)).build();
+                new FhirController(resourceClient, context),
+                new PatientController(new PatientClient(client), resourceClient, context),
+                new DeviceController(new DeviceClient(client), resourceClient, context),
+                new ObservationController(new ObservationClient(client), resourceClient, context)).build();
     }
 
     @AfterEach
@@ -76,7 +83,7 @@ class FhirControllerTests {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"Observation", "Condition", "Encounter", "Organization", "Practitioner"})
+    @ValueSource(strings = {"Device", "Observation", "Condition", "Encounter", "Organization", "Practitioner"})
     void returnsRequestedResourceAsFhirJson(String resourceType) throws Exception {
         response = """
                 {"resourceType":"Bundle","type":"searchset","entry":[
