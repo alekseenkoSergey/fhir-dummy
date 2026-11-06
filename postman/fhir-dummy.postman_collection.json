@@ -1,0 +1,481 @@
+{
+  "info": {
+    "_postman_id": "8ff66c87-8a13-42f5-998a-d32125500dae",
+    "name": "FHIR Dummy API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "2342964"
+  },
+  "item": [
+    {
+      "name": "Observation",
+      "item": [
+        {
+          "name": "Create Observation",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 201\", function () { pm.response.to.have.status(201); });",
+                  "if (pm.response.code === 201) {",
+                  "    pm.test(\"FHIR resource type\", function () {",
+                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Observation\");",
+                  "    });",
+                  "}",
+                  "if (pm.response.code === 201) {",
+                  "    const observation = pm.response.json();",
+                  "    pm.test(\"Created Observation has an ID\", function () {",
+                  "        pm.expect(observation.id).to.be.a(\"string\").and.not.empty;",
+                  "    });",
+                  "    if (typeof observation.id === \"string\" && observation.id.length > 0) {",
+                  "        pm.environment.set(\"observationId\", observation.id);",
+                  "    }",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"final\",\n  \"code\": \"8310-5\",\n  \"value\": 36.6,\n  \"unit\": \"Cel\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/fhir/observation",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fhir",
+                "observation"
+              ]
+            },
+            "description": "Creates a synthetic temperature Observation. Saves the returned id to the selected environment as observationId."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Observation by ID",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (!pm.environment.get(\"observationId\")) {",
+                  "    throw new Error(\"Run Create Observation first and select the imported environment.\");",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test(\"FHIR resource type\", function () {",
+                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Observation\");",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fhir/observation/{{observationId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fhir",
+                "observation",
+                "{{observationId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Observation",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "if (!pm.environment.get(\"observationId\")) {",
+                  "    throw new Error(\"Run Create Observation first and select the imported environment.\");",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test(\"FHIR resource type\", function () {",
+                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Observation\");",
+                  "    });",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"amended\",\n  \"code\": \"8310-5\",\n  \"value\": 38.2,\n  \"unit\": \"Cel\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/fhir/observation/{{observationId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fhir",
+                "observation",
+                "{{observationId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Observation",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (!pm.environment.get(\"observationId\")) {",
+                  "    throw new Error(\"Run Create Observation first and select the imported environment.\");",
+                  "}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 204\", function () { pm.response.to.have.status(204); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fhir/observation/{{observationId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fhir",
+                "observation",
+                "{{observationId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get example Observation",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test(\"FHIR resource type\", function () {",
+                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Observation\");",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fhir/observation",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fhir",
+                "observation"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "GET",
+      "item": [
+        {
+          "name": "Get Patient",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test(\"FHIR resource type\", function () {",
+                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Patient\");",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fhir/patient",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fhir",
+                "patient"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Condition",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test(\"FHIR resource type\", function () {",
+                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Condition\");",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fhir/condition",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fhir",
+                "condition"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Encounter",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test(\"FHIR resource type\", function () {",
+                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Encounter\");",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fhir/encounter",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fhir",
+                "encounter"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Organization",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test(\"FHIR resource type\", function () {",
+                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Organization\");",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fhir/organization",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fhir",
+                "organization"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Practitioner",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test(\"FHIR resource type\", function () {",
+                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Practitioner\");",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fhir/practitioner",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fhir",
+                "practitioner"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

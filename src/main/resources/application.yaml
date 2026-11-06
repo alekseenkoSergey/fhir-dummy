@@ -1,3 +1,7 @@
 spring:
   application:
     name: fhir-dummy
+
+fhir:
+  server:
+    base-url: ${FHIR_SERVER_BASE_URL:https://hapi.fhir.org/baseR4}
