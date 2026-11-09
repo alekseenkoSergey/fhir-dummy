@@ -25,9 +25,27 @@ class ObservationControllerTests {
     private MockMvc mvc;
     private final AtomicReference<Observation> stored = new AtomicReference<>();
     private final AtomicReference<String> lastMethod = new AtomicReference<>();
+    private static FhirValidator igValidator;
     private static final String BODY = """
             {"status":"final","code":"8310-5","value":36.6,"unit":"Cel"}
             """;
+    private static final String HEART_RATE = """
+            {
+              "resourceType": "Observation",
+              "status": "final",
+              "category": [{"coding": [{"system": "http://terminology.hl7.org/CodeSystem/observation-category", "code": "vital-signs"}]}],
+              "code": {"coding": [{"system": "http://loinc.org", "code": "8867-4", "display": "Heart rate"}]},
+              "subject": {"reference": "Patient/1"},
+              "effectiveDateTime": "2026-11-06T12:00:00Z",
+              "valueQuantity": {"value": 72, "unit": "beats/minute", "system": "http://unitsofmeasure.org", "code": "/min"}
+            }
+            """;
+
+    @BeforeAll
+    static void createIgValidator() throws Exception {
+        FhirContext context = new FhirConfiguration().fhirContext();
+        igValidator = new FhirConfiguration().fhirValidator(context, "ig1/package.tgz");
+    }
 
     @BeforeEach
     void setUp() throws Exception {
@@ -116,5 +134,36 @@ class ObservationControllerTests {
         }
         mvc.perform(get("/fhir/observation/bad_id")).andExpect(status().isBadRequest());
         assertNull(lastMethod.get());
+    }
+
+    @Test
+    void validateAcceptsObservationConformingToIg() throws Exception {
+        validationMvc().perform(post("/fhir/observation/validate")
+                        .contentType("application/json").content(HEART_RATE))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.conforms").value(true))
+                .andExpect(jsonPath("$.errors").isEmpty());
+    }
+
+    @Test
+    void validateRejectsObservationViolatingIg() throws Exception {
+        String wrongUnit = HEART_RATE.replace("\"code\": \"/min\"", "\"code\": \"mg\"");
+        validationMvc().perform(post("/fhir/observation/validate")
+                        .contentType("application/json")
+                        .content(wrongUnit))
+                .andExpect(status().isUnprocessableContent())
+                .andExpect(jsonPath("$.conforms").value(false))
+                .andExpect(jsonPath("$.errors").isNotEmpty());
+    }
+
+    private MockMvc validationMvc() {
+        FhirContext context = new FhirConfiguration().fhirContext();
+        var client = context.newRestfulGenericClient("http://127.0.0.1:1");
+        return MockMvcBuilders.standaloneSetup(new ObservationController(
+                new ObservationClient(client),
+                new FhirResourceClient(client),
+                context,
+                igValidator)
+        ).build();
     }
 }
