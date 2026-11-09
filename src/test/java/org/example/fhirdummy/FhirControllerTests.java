@@ -2,6 +2,7 @@ package org.example.fhirdummy;
 
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.rest.client.api.ServerValidationModeEnum;
+import ca.uhn.fhir.validation.FhirValidator;
 import com.sun.net.httpserver.HttpServer;
 import org.example.fhirdummy.client.FhirResourceClient;
 import org.example.fhirdummy.client.ObservationClient;
@@ -21,6 +22,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.concurrent.atomic.AtomicReference;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -49,7 +51,13 @@ class FhirControllerTests {
         var client = context.newRestfulGenericClient("http://127.0.0.1:" + server.getAddress().getPort());
         mvc = MockMvcBuilders.standaloneSetup(
                 new FhirController(new FhirResourceClient(client), context),
-                new ObservationController(new ObservationClient(client), new FhirResourceClient(client), context)).build();
+                new ObservationController(
+                        new ObservationClient(client),
+                        new FhirResourceClient(client),
+                        context,
+                        mock(FhirValidator.class)
+                )
+        ).build();
     }
 
     @AfterEach
