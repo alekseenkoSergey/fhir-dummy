@@ -26,8 +26,8 @@ public class ObservationController {
     private final FhirResourceClient resourceClient;
     private final FhirContext context;
     private final FhirValidator validator;
-    private static final String HR_PROFILE =
-            "http://example.org/fhir/ig1/StructureDefinition/ig1-heart-rate-observation";
+    private static final String CONNECTIVITY_PROFILE =
+            "http://example.org/fhir/ig1/StructureDefinition/ig1-cied-connectivity-observation";
 
     public ObservationController(ObservationClient client, FhirResourceClient resourceClient,
                                  FhirContext context, FhirValidator validator) {
@@ -76,7 +76,7 @@ public class ObservationController {
         } catch (DataFormatException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Not a valid FHIR Observation JSON");
         }
-        observation.getMeta().setProfile(List.of(new CanonicalType(HR_PROFILE)));
+        observation.getMeta().setProfile(List.of(new CanonicalType(CONNECTIVITY_PROFILE)));
 
         ValidationResult result = validator.validateWithResult(observation);
 

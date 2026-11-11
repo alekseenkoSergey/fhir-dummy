@@ -29,15 +29,24 @@ class ObservationControllerTests {
     private static final String BODY = """
             {"status":"final","code":"8310-5","value":36.6,"unit":"Cel"}
             """;
-    private static final String HEART_RATE = """
+    private static final String CONNECTIVITY = """
             {
               "resourceType": "Observation",
               "status": "final",
-              "category": [{"coding": [{"system": "http://terminology.hl7.org/CodeSystem/observation-category", "code": "vital-signs"}]}],
-              "code": {"coding": [{"system": "http://loinc.org", "code": "8867-4", "display": "Heart rate"}]},
+              "code": {"coding": [{"system": "http://example.org/fhir/ig1/CodeSystem/ig1-connectivity-cs", "code": "connectivity"}]},
               "subject": {"reference": "Patient/1"},
-              "effectiveDateTime": "2026-11-06T12:00:00Z",
-              "valueQuantity": {"value": 72, "unit": "beats/minute", "system": "http://unitsofmeasure.org", "code": "/min"}
+              "device": {"reference": "Device/10"},
+              "effectiveDateTime": "2026-01-15",
+              "component": [
+                {
+                  "code": {"coding": [{"system": "http://example.org/fhir/ig1/CodeSystem/ig1-connectivity-cs", "code": "connectivityStatus"}]},
+                  "valueCodeableConcept": {"coding": [{"system": "http://example.org/fhir/ig1/CodeSystem/ig1-connectivity-cs", "code": "connected"}]}
+                },
+                {
+                  "code": {"coding": [{"system": "http://example.org/fhir/ig1/CodeSystem/ig1-connectivity-cs", "code": "connectionInterval"}]},
+                  "valueQuantity": {"value": 90, "unit": "days", "system": "http://unitsofmeasure.org", "code": "d"}
+                }
+              ]
             }
             """;
 
@@ -139,7 +148,7 @@ class ObservationControllerTests {
     @Test
     void validateAcceptsObservationConformingToIg() throws Exception {
         validationMvc().perform(post("/fhir/observation/validate")
-                        .contentType("application/json").content(HEART_RATE))
+                        .contentType("application/json").content(CONNECTIVITY))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.conforms").value(true))
                 .andExpect(jsonPath("$.errors").isEmpty());
@@ -147,10 +156,10 @@ class ObservationControllerTests {
 
     @Test
     void validateRejectsObservationViolatingIg() throws Exception {
-        String wrongUnit = HEART_RATE.replace("\"code\": \"/min\"", "\"code\": \"mg\"");
+        String wrongStatus = CONNECTIVITY.replace("\"code\": \"connected\"", "\"code\": \"bogus\"");
         validationMvc().perform(post("/fhir/observation/validate")
                         .contentType("application/json")
-                        .content(wrongUnit))
+                        .content(wrongStatus))
                 .andExpect(status().isUnprocessableContent())
                 .andExpect(jsonPath("$.conforms").value(false))
                 .andExpect(jsonPath("$.errors").isNotEmpty());
