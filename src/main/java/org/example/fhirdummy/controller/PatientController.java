@@ -1,6 +1,7 @@
 package org.example.fhirdummy.controller;
 
 import ca.uhn.fhir.context.FhirContext;
+import ca.uhn.fhir.validation.FhirValidator;
 import org.example.fhirdummy.client.FhirResourceClient;
 import org.example.fhirdummy.client.PatientClient;
 import org.example.fhirdummy.dto.PatientRequest;
@@ -17,12 +18,15 @@ public class PatientController {
     private final PatientClient client;
     private final FhirResourceClient resourceClient;
     private final FhirContext context;
+    private final FhirValidator validator;
+    private static final String PROFILE = ProfileValidation.IG1_PROFILE_BASE + "ig1-patient";
 
     public PatientController(PatientClient client, FhirResourceClient resourceClient,
-                                 FhirContext context) {
+                                 FhirContext context, FhirValidator validator) {
         this.client = client;
         this.resourceClient = resourceClient;
         this.context = context;
+        this.validator = validator;
     }
 
     @GetMapping(produces = "application/fhir+json")
@@ -51,6 +55,12 @@ public class PatientController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable String id) {
         client.delete(id);
+    }
+
+    @PostMapping(value = "/validate", consumes = {"application/json", "application/fhir+json"},
+            produces = "application/json")
+    public ResponseEntity<ProfileValidation.Response> validate(@RequestBody String body) {
+        return ProfileValidation.validate(validator, body, PROFILE);
     }
 
     private String json(Patient patient) {

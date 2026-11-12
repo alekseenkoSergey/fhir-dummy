@@ -58,8 +58,8 @@ class FhirControllerTests {
         var resourceClient = new FhirResourceClient(client);
         mvc = MockMvcBuilders.standaloneSetup(
                 new FhirController(resourceClient, context),
-                new PatientController(new PatientClient(client), resourceClient, context),
-                new DeviceController(new DeviceClient(client), resourceClient, context),
+                new PatientController(new PatientClient(client), resourceClient, context, mock(FhirValidator.class)),
+                new DeviceController(new DeviceClient(client), resourceClient, context, mock(FhirValidator.class)),
                 new ObservationController(new ObservationClient(client), resourceClient, context, mock(FhirValidator.class))).build();
     }
 

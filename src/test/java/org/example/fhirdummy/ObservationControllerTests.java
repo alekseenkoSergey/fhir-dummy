@@ -32,19 +32,23 @@ class ObservationControllerTests {
     private static final String CONNECTIVITY = """
             {
               "resourceType": "Observation",
+              "extension": [{
+                "url": "http://hl7.org/fhir/uv/cardx-cied/StructureDefinition/cied-device-extension",
+                "valueReference": {"reference": "Device/9"}
+              }],
               "status": "final",
-              "code": {"coding": [{"system": "http://example.org/fhir/ig1/CodeSystem/ig1-connectivity-cs", "code": "connectivity"}]},
+              "code": {"coding": [{"system": "http://hl7.org/fhir/uv/cardx-cied/CodeSystem/CardXCIED", "code": "observation-cied-connectivity"}]},
               "subject": {"reference": "Patient/1"},
               "device": {"reference": "Device/10"},
               "effectiveDateTime": "2026-01-15",
               "component": [
                 {
-                  "code": {"coding": [{"system": "http://example.org/fhir/ig1/CodeSystem/ig1-connectivity-cs", "code": "connectivityStatus"}]},
-                  "valueCodeableConcept": {"coding": [{"system": "http://example.org/fhir/ig1/CodeSystem/ig1-connectivity-cs", "code": "connected"}]}
+                  "code": {"coding": [{"system": "http://hl7.org/fhir/uv/cardx-cied/CodeSystem/CardXCIED", "code": "connectivity-status"}]},
+                  "valueCodeableConcept": {"coding": [{"system": "http://hl7.org/fhir/uv/cardx-cied/CodeSystem/CardXCIED", "code": "connected"}]}
                 },
                 {
-                  "code": {"coding": [{"system": "http://example.org/fhir/ig1/CodeSystem/ig1-connectivity-cs", "code": "connectionInterval"}]},
-                  "valueQuantity": {"value": 90, "unit": "days", "system": "http://unitsofmeasure.org", "code": "d"}
+                  "code": {"coding": [{"system": "http://hl7.org/fhir/uv/cardx-cied/CodeSystem/CardXCIED", "code": "connection-interval"}]},
+                  "valueInteger": 90
                 }
               ]
             }
@@ -53,7 +57,8 @@ class ObservationControllerTests {
     @BeforeAll
     static void createIgValidator() throws Exception {
         FhirContext context = new FhirConfiguration().fhirContext();
-        igValidator = new FhirConfiguration().fhirValidator(context, "ig1/package.tgz");
+        igValidator = new FhirConfiguration()
+                .fhirValidator(context, "ig1/package.tgz", "cardx-cied/package.tgz");
     }
 
     @BeforeEach
@@ -160,6 +165,15 @@ class ObservationControllerTests {
         validationMvc().perform(post("/fhir/observation/validate")
                         .contentType("application/json")
                         .content(wrongStatus))
+                .andExpect(status().isUnprocessableContent())
+                .andExpect(jsonPath("$.conforms").value(false))
+                .andExpect(jsonPath("$.errors").isNotEmpty());
+    }
+
+    @Test
+    void validateReportsInvalidStatusAsValidationError() throws Exception {
+        validationMvc().perform(post("/fhir/observation/validate").contentType("application/json")
+                        .content(CONNECTIVITY.replace("\"final\"", "\"some status\"")))
                 .andExpect(status().isUnprocessableContent())
                 .andExpect(jsonPath("$.conforms").value(false))
                 .andExpect(jsonPath("$.errors").isNotEmpty());

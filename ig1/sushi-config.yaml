@@ -6,8 +6,8 @@
 id: ig1
 canonical: http://example.org/fhir/ig1
 name: IG1
-# title: Example Title
-# description: Example Implementation Guide for getting started with SUSHI
+title: IG1
+description: Profiles for CIED remote-monitoring data (Patient, Device, Monitor, Connectivity Observation) based on HL7 CardX-CIED, FHIR R5.
 status: draft # draft | active | retired | unknown
 version: 0.1.0
 fhirVersion: 5.0.0 # https://www.hl7.org/fhir/valueset-FHIR-version.html
@@ -24,7 +24,9 @@ publisher:
 # package id and the value is the version (or dev/current). For advanced
 # use cases, the value can be an object with keys for id, uri, and version.
 #
-# dependencies:
+dependencies:
+  # CardX-CIED 2.0.0 is only available as a CI build (not on the package registry yet)
+  hl7.fhir.uv.cardx-cied: current
 #   hl7.fhir.us.core: 3.1.0
 #   hl7.fhir.us.mcode:
 #     id: mcode

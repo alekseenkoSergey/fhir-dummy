@@ -1,23 +1,16 @@
 package org.example.fhirdummy.controller;
 
 import ca.uhn.fhir.context.FhirContext;
-import ca.uhn.fhir.parser.DataFormatException;
 import ca.uhn.fhir.validation.FhirValidator;
-import ca.uhn.fhir.validation.ResultSeverityEnum;
-import ca.uhn.fhir.validation.ValidationResult;
 import org.example.fhirdummy.client.FhirResourceClient;
 import org.example.fhirdummy.client.ObservationClient;
 import org.example.fhirdummy.dto.ObservationRequest;
-import org.hl7.fhir.r5.model.CanonicalType;
 import org.hl7.fhir.r5.model.Observation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.net.URI;
-import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping("/fhir/observation")
@@ -65,36 +58,10 @@ public class ObservationController {
         client.delete(id);
     }
 
-    public record ValidationResponse(boolean conforms, List<String> errors, List<String> warnings) {}
-
     @PostMapping(value = "/validate", consumes = {"application/json", "application/fhir+json"},
             produces = "application/json")
-    public ResponseEntity<ValidationResponse> validate(@RequestBody String body) {
-        Observation observation;
-        try {
-            observation = context.newJsonParser().parseResource(Observation.class, body);
-        } catch (DataFormatException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Not a valid FHIR Observation JSON");
-        }
-        observation.getMeta().setProfile(List.of(new CanonicalType(CONNECTIVITY_PROFILE)));
-
-        ValidationResult result = validator.validateWithResult(observation);
-
-        ValidationResponse response = new ValidationResponse(
-                result.isSuccessful(),
-                messages(result, ResultSeverityEnum.ERROR, ResultSeverityEnum.FATAL),
-                messages(result, ResultSeverityEnum.WARNING)
-        );
-
-        return ResponseEntity.status(result.isSuccessful() ? 200 : 422).body(response);
-    }
-
-    private List<String> messages(ValidationResult result, ResultSeverityEnum... severities) {
-        Set<ResultSeverityEnum> wanted = Set.of(severities);
-        return result.getMessages().stream()
-                .filter(m -> wanted.contains(m.getSeverity()))
-                .map(m -> m.getLocationString() + ": " + m.getMessage())
-                .toList();
+    public ResponseEntity<ProfileValidation.Response> validate(@RequestBody String body) {
+        return ProfileValidation.validate(validator, body, CONNECTIVITY_PROFILE);
     }
 
     private String json(Observation observation) {
