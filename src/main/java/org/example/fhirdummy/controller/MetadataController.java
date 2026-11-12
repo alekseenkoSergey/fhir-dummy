@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class MetadataController {
-    private static final String CARDX_PROFILE_BASE = "http://hl7.org/fhir/uv/cardx-cied/StructureDefinition/";
-
     private final String metadataJson;
 
     public MetadataController(FhirContext context, @Value("${fhir.public-base-url:}") String publicBaseUrl) {
@@ -30,6 +28,7 @@ public class MetadataController {
         }
         statement.setFhirVersion(FHIRVersion._5_0_0);
         statement.addFormat("json");
+        statement.addImplementationGuide(ProfileValidation.IG1_GUIDE);
 
         var server = statement.addRest()
                 .setMode(RestfulCapabilityMode.SERVER)
@@ -37,20 +36,20 @@ public class MetadataController {
 
         var patient = server.addResource()
                 .setType("Patient")
-                .addSupportedProfile(CARDX_PROFILE_BASE + "cied-patient")
+                .addSupportedProfile(ProfileValidation.PATIENT_PROFILE)
                 .setDocumentation("Read a patient by ID.");
         patient.addInteraction().setCode(TypeRestfulInteraction.READ);
         patient.addInteraction().setCode(TypeRestfulInteraction.SEARCHTYPE);
 
         server.addResource()
                 .setType("Device")
-                .addSupportedProfile(CARDX_PROFILE_BASE + "cied-device")
-                .addSupportedProfile(CARDX_PROFILE_BASE + "cied-monitor")
+                .addSupportedProfile(ProfileValidation.DEVICE_PROFILE)
+                .addSupportedProfile(ProfileValidation.MONITOR_PROFILE)
                 .setDocumentation("Implanted devices and monitors are mapped from device data returned for a patient.");
 
         server.addResource()
                 .setType("Observation")
-                .addSupportedProfile(CARDX_PROFILE_BASE + "cied-connectivity-status")
+                .addSupportedProfile(ProfileValidation.CONNECTIVITY_PROFILE)
                 .setDocumentation("CIED connectivity observations are planned when patient device data provides the required connectivity details.");
 
         metadataJson = context.newJsonParser().encodeResourceToString(statement);

@@ -11,7 +11,13 @@ import java.util.List;
 import java.util.Set;
 
 public final class ProfileValidation {
-    static final String IG1_PROFILE_BASE = "http://example.org/fhir/ig1/StructureDefinition/";
+    private static final String IG1_BASE = "http://example.org/fhir/ig1";
+    private static final String IG1_PROFILE_BASE = IG1_BASE + "/StructureDefinition/";
+    static final String IG1_GUIDE = IG1_BASE + "/ImplementationGuide/ig1";
+    static final String PATIENT_PROFILE = IG1_PROFILE_BASE + "ig1-patient";
+    static final String DEVICE_PROFILE = IG1_PROFILE_BASE + "ig1-cied-device";
+    static final String MONITOR_PROFILE = IG1_PROFILE_BASE + "ig1-cied-monitor";
+    static final String CONNECTIVITY_PROFILE = IG1_PROFILE_BASE + "ig1-cied-connectivity-observation";
 
     public record Response(boolean conforms, List<String> errors, List<String> warnings) {}
 
