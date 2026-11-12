@@ -26,8 +26,10 @@ import java.nio.charset.StandardCharsets;
 import java.util.concurrent.atomic.AtomicReference;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.mock;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 class FhirControllerTests {
@@ -85,7 +87,7 @@ class FhirControllerTests {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"Device", "Observation", "Condition", "Encounter", "Organization", "Practitioner"})
+    @ValueSource(strings = {"Observation", "Condition", "Encounter", "Organization", "Practitioner"})
     void returnsRequestedResourceAsFhirJson(String resourceType) throws Exception {
         response = """
                 {"resourceType":"Bundle","type":"searchset","entry":[
@@ -98,6 +100,34 @@ class FhirControllerTests {
                 .andExpect(jsonPath("$.resourceType").value(resourceType))
                 .andExpect(jsonPath("$.id").value("example"));
         assertEquals("/" + resourceType + "?_count=1", request.get());
+    }
+
+    @Test
+    void returnsDeviceWithR5Fields() throws Exception {
+        response = """
+                {"resourceType":"Bundle","type":"searchset","entry":[
+                  {"resource":{"resourceType":"Device","id":"example","status":"active",
+                    "name":[{"value":"Demo","type":"registered-name"}],
+                    "type":[{"text":"Monitor"},{"text":"Transmitter"}]}}
+                ]}
+                """;
+        mvc.perform(get("/fhir/device"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentTypeCompatibleWith("application/fhir+json"))
+                .andExpect(jsonPath("$.resourceType").value("Device"))
+                .andExpect(jsonPath("$.id").value("example"))
+                .andExpect(jsonPath("$.name[0].value").value("Demo"))
+                .andExpect(jsonPath("$.type[1].text").value("Transmitter"));
+        assertEquals("/Device?_count=1", request.get());
+    }
+
+    @Test
+    void rejectsRemovedDeviceStatusBeforeCallingFhirServer() throws Exception {
+        mvc.perform(post("/fhir/device").contentType("application/json").content("""
+                {"status":"unknown","manufacturer":"Acme","modelNumber":"X100"}
+                """))
+                .andExpect(status().isBadRequest());
+        assertNull(request.get());
     }
 
     @Test

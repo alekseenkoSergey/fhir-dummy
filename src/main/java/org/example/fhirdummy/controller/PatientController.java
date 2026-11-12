@@ -4,7 +4,7 @@ import ca.uhn.fhir.context.FhirContext;
 import org.example.fhirdummy.client.FhirResourceClient;
 import org.example.fhirdummy.client.PatientClient;
 import org.example.fhirdummy.dto.PatientRequest;
-import org.hl7.fhir.r4.model.Patient;
+import org.hl7.fhir.r5.model.Patient;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

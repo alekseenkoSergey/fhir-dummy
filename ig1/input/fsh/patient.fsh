@@ -10,7 +10,7 @@ Title: "IG1 Patient"
 Description: "Patient as exchanged with Merlin.net."
 // Merlin.net number
 * identifier MS
-* identifier ^slicing.discriminator.type = #pattern
+* identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "system"
 * identifier ^slicing.rules = #open
 * identifier contains merlinNet 1..1 MS

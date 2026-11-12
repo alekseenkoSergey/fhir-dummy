@@ -8,7 +8,7 @@ import org.example.fhirdummy.client.FhirResourceClient;
 import org.example.fhirdummy.client.ObservationClient;
 import org.example.fhirdummy.configuration.FhirConfiguration;
 import org.example.fhirdummy.controller.ObservationController;
-import org.hl7.fhir.r4.model.Observation;
+import org.hl7.fhir.r5.model.Observation;
 import org.junit.jupiter.api.*;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;

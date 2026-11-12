@@ -2,10 +2,10 @@ package org.example.fhirdummy.controller;
 
 import ca.uhn.fhir.context.FhirContext;
 import org.example.fhirdummy.client.FhirResourceClient;
-import org.hl7.fhir.r4.model.Condition;
-import org.hl7.fhir.r4.model.Encounter;
-import org.hl7.fhir.r4.model.Organization;
-import org.hl7.fhir.r4.model.Practitioner;
+import org.hl7.fhir.r5.model.Condition;
+import org.hl7.fhir.r5.model.Encounter;
+import org.hl7.fhir.r5.model.Organization;
+import org.hl7.fhir.r5.model.Practitioner;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

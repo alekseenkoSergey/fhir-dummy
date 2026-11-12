@@ -2,7 +2,7 @@ package org.example.fhirdummy.client;
 
 import ca.uhn.fhir.rest.client.api.IGenericClient;
 import org.example.fhirdummy.dto.DeviceRequest;
-import org.hl7.fhir.r4.model.Device;
+import org.hl7.fhir.r5.model.Device;
 import org.springframework.stereotype.Service;
 
 @Service

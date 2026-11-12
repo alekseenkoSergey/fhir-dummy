@@ -2,7 +2,7 @@ package org.example.fhirdummy.client;
 
 import ca.uhn.fhir.rest.client.api.IGenericClient;
 import ca.uhn.fhir.rest.server.exceptions.BaseServerResponseException;
-import org.hl7.fhir.r4.model.Resource;
+import org.hl7.fhir.r5.model.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 

@@ -22,7 +22,7 @@ public class FhirConfiguration {
 
     @Bean
     public FhirContext fhirContext() {
-        FhirContext context = FhirContext.forR4();
+        FhirContext context = FhirContext.forR5();
         context.getRestfulClientFactory().setConnectTimeout(5_000);
         context.getRestfulClientFactory().setSocketTimeout(15_000);
         return context;

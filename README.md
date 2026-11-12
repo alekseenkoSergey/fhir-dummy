@@ -1,6 +1,21 @@
 # fhir-dummy
 
-Java 21 / Spring Boot application with a HAPI FHIR R4 client.
+Java 21 / Spring Boot application with a HAPI FHIR R5 (5.0.0) client.
+Set `FHIR_SERVER_BASE_URL` to use a different FHIR R5 server. The default is
+`https://hapi.fhir.org/baseR5`.
+
+Device create and update requests accept the R5 status codes `active`,
+`inactive` and `entered-in-error`.
+
+## IG1 validation package
+
+After editing the FSH profiles, use SUSHI and the HL7 IG Publisher to rebuild the
+package used by the application. Run these commands from the repository root.
+
+```sh
+(cd ig1 && bash _build.sh -generation-off) &&
+cp ig1/output/package.tgz src/main/resources/ig1/package.tgz
+```
 
 ## Test coverage
 

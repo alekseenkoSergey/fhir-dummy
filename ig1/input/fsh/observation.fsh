@@ -20,7 +20,7 @@ Description: "Remote-monitoring connectivity of a patient's CIED."
 * value[x] 0..0
 
 * component MS
-* component ^slicing.discriminator.type = #pattern
+* component ^slicing.discriminator.type = #value
 * component ^slicing.discriminator.path = "code"
 * component ^slicing.rules = #closed
 * component contains

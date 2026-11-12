@@ -1,6 +1,6 @@
 package org.example.fhirdummy.dto;
 
-import org.hl7.fhir.r4.model.Device;
+import org.hl7.fhir.r5.model.Device;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
