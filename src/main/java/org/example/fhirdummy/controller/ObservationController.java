@@ -19,8 +19,6 @@ public class ObservationController {
     private final FhirResourceClient resourceClient;
     private final FhirContext context;
     private final FhirValidator validator;
-    private static final String CONNECTIVITY_PROFILE =
-            "http://example.org/fhir/ig1/StructureDefinition/ig1-cied-connectivity-observation";
 
     public ObservationController(ObservationClient client, FhirResourceClient resourceClient,
                                  FhirContext context, FhirValidator validator) {
@@ -61,7 +59,7 @@ public class ObservationController {
     @PostMapping(value = "/validate", consumes = {"application/json", "application/fhir+json"},
             produces = "application/json")
     public ResponseEntity<ProfileValidation.Response> validate(@RequestBody String body) {
-        return ProfileValidation.validate(validator, body, CONNECTIVITY_PROFILE);
+        return ProfileValidation.validate(validator, body, ProfileValidation.CONNECTIVITY_PROFILE);
     }
 
     private String json(Observation observation) {

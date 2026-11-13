@@ -19,8 +19,6 @@ public class DeviceController {
     private final FhirResourceClient resourceClient;
     private final FhirContext context;
     private final FhirValidator validator;
-    private static final String DEVICE_PROFILE = ProfileValidation.IG1_PROFILE_BASE + "ig1-cied-device";
-    private static final String MONITOR_PROFILE = ProfileValidation.IG1_PROFILE_BASE + "ig1-cied-monitor";
 
     public DeviceController(DeviceClient client, FhirResourceClient resourceClient,
                                  FhirContext context, FhirValidator validator) {
@@ -61,13 +59,13 @@ public class DeviceController {
     @PostMapping(value = "/validate", consumes = {"application/json", "application/fhir+json"},
             produces = "application/json")
     public ResponseEntity<ProfileValidation.Response> validate(@RequestBody String body) {
-        return ProfileValidation.validate(validator, body, DEVICE_PROFILE);
+        return ProfileValidation.validate(validator, body, ProfileValidation.DEVICE_PROFILE);
     }
 
     @PostMapping(value = "/validate/monitor", consumes = {"application/json", "application/fhir+json"},
             produces = "application/json")
     public ResponseEntity<ProfileValidation.Response> validateMonitor(@RequestBody String body) {
-        return ProfileValidation.validate(validator, body, MONITOR_PROFILE);
+        return ProfileValidation.validate(validator, body, ProfileValidation.MONITOR_PROFILE);
     }
 
     private String json(Device device) {
