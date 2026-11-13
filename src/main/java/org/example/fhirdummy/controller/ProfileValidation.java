@@ -11,13 +11,13 @@ import java.util.List;
 import java.util.Set;
 
 public final class ProfileValidation {
-    private static final String IG1_BASE = "http://example.org/fhir/ig1";
-    private static final String IG1_PROFILE_BASE = IG1_BASE + "/StructureDefinition/";
-    static final String IG1_GUIDE = IG1_BASE + "/ImplementationGuide/ig1";
-    static final String PATIENT_PROFILE = IG1_PROFILE_BASE + "ig1-patient";
-    static final String DEVICE_PROFILE = IG1_PROFILE_BASE + "ig1-cied-device";
-    static final String MONITOR_PROFILE = IG1_PROFILE_BASE + "ig1-cied-monitor";
-    static final String CONNECTIVITY_PROFILE = IG1_PROFILE_BASE + "ig1-cied-connectivity-observation";
+    static final String CARDX_CIED_PROFILE_BASE = "http://hl7.org/fhir/uv/cardx-cied/StructureDefinition/";
+    static final String CARDX_CIED_GUIDE =
+            "http://hl7.org/fhir/uv/cardx-cied/ImplementationGuide/hl7.fhir.uv.cardx-cied";
+    static final String PATIENT_PROFILE = CARDX_CIED_PROFILE_BASE + "cied-patient";
+    static final String DEVICE_PROFILE = CARDX_CIED_PROFILE_BASE + "cied-device";
+    static final String MONITOR_PROFILE = CARDX_CIED_PROFILE_BASE + "cied-monitor";
+    static final String CONNECTIVITY_PROFILE = CARDX_CIED_PROFILE_BASE + "cied-connectivity-status";
 
     public record Response(boolean conforms, List<String> errors, List<String> warnings) {}
 

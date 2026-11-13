@@ -12,12 +12,14 @@ import org.hl7.fhir.common.hapi.validation.support.SnapshotGeneratingValidationS
 import org.hl7.fhir.common.hapi.validation.support.ValidationSupportChain;
 import org.hl7.fhir.common.hapi.validation.validator.FhirInstanceValidator;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.io.IOException;
 
 @Configuration
+@EnableConfigurationProperties(CardxCiedProperties.class)
 public class FhirConfiguration {
 
     @Bean
@@ -37,14 +39,18 @@ public class FhirConfiguration {
     @Bean
     public FhirValidator fhirValidator(
             FhirContext ctx,
-            @Value("${fhir.cardx-cied.package}") String cardxCiedPackage
+            CardxCiedProperties cardxCied
     ) throws IOException {
-        NpmPackageValidationSupport cardxCied = new NpmPackageValidationSupport(ctx);
-        cardxCied.loadPackageFromClasspath(cardxCiedPackage);
+        NpmPackageValidationSupport npm = new NpmPackageValidationSupport(ctx);
+        for (String dependency : cardxCied.dependencies()) {
+            npm.loadPackageFromClasspath(dependency);
+        }
+
+        npm.loadPackageFromClasspath(cardxCied.packageLocation());
 
         ValidationSupportChain chain = new ValidationSupportChain(
+                npm,
                 new DefaultProfileValidationSupport(ctx),
-                cardxCied,
                 new CommonCodeSystemsTerminologyService(ctx),
                 new InMemoryTerminologyServerValidationSupport(ctx),
                 new SnapshotGeneratingValidationSupport(ctx)

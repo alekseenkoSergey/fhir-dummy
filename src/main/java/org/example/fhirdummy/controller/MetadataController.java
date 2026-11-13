@@ -28,7 +28,7 @@ public class MetadataController {
         }
         statement.setFhirVersion(FHIRVersion._5_0_0);
         statement.addFormat("json");
-        statement.addImplementationGuide(ProfileValidation.IG1_GUIDE);
+        statement.addImplementationGuide(ProfileValidation.CARDX_CIED_GUIDE);
 
         var server = statement.addRest()
                 .setMode(RestfulCapabilityMode.SERVER)

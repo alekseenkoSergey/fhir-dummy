@@ -6,6 +6,7 @@ import ca.uhn.fhir.validation.FhirValidator;
 import com.sun.net.httpserver.HttpServer;
 import org.example.fhirdummy.client.FhirResourceClient;
 import org.example.fhirdummy.client.ObservationClient;
+import org.example.fhirdummy.configuration.CardxCiedProperties;
 import org.example.fhirdummy.configuration.FhirConfiguration;
 import org.example.fhirdummy.controller.ObservationController;
 import org.hl7.fhir.r5.model.Observation;
@@ -14,6 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import java.net.InetSocketAddress;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
@@ -58,7 +60,8 @@ class ObservationControllerTests {
     static void createIgValidator() throws Exception {
         FhirContext context = new FhirConfiguration().fhirContext();
         igValidator = new FhirConfiguration()
-                .fhirValidator(context, "ig1/package.tgz", "cardx-cied/package.tgz");
+                .fhirValidator(context, new CardxCiedProperties("ig/package.tgz",
+                        List.of("ig/terminology.tgz", "ig/extensions.tgz")));
     }
 
     @BeforeEach

@@ -7,4 +7,7 @@ fhir:
   server:
     base-url: ${FHIR_SERVER_BASE_URL:https://hapi.fhir.org/baseR5}
   cardx-cied:
-    package: cardx-cied/package.tgz
+    dependencies:
+      - ig/terminology.tgz
+      - ig/extensions.tgz
+    package-location: ig/package.tgz
