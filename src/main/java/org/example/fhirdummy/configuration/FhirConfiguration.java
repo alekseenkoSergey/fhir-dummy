@@ -37,19 +37,14 @@ public class FhirConfiguration {
     @Bean
     public FhirValidator fhirValidator(
             FhirContext ctx,
-            @Value("${fhir.ig1.package}") String ig1Package,
             @Value("${fhir.cardx-cied.package}") String cardxCiedPackage
     ) throws IOException {
         NpmPackageValidationSupport cardxCied = new NpmPackageValidationSupport(ctx);
         cardxCied.loadPackageFromClasspath(cardxCiedPackage);
 
-        NpmPackageValidationSupport ig1 = new NpmPackageValidationSupport(ctx);
-        ig1.loadPackageFromClasspath(ig1Package);
-
         ValidationSupportChain chain = new ValidationSupportChain(
                 new DefaultProfileValidationSupport(ctx),
                 cardxCied,
-                ig1,
                 new CommonCodeSystemsTerminologyService(ctx),
                 new InMemoryTerminologyServerValidationSupport(ctx),
                 new SnapshotGeneratingValidationSupport(ctx)

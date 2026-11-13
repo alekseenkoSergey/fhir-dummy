@@ -6,7 +6,5 @@ fhir:
   public-base-url: ${FHIR_PUBLIC_BASE_URL:}
   server:
     base-url: ${FHIR_SERVER_BASE_URL:https://hapi.fhir.org/baseR5}
-  ig1:
-    package: ig1/package.tgz
   cardx-cied:
     package: cardx-cied/package.tgz
