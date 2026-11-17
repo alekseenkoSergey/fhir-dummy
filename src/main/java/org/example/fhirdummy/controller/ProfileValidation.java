@@ -15,7 +15,7 @@ public final class ProfileValidation {
     static final String CARDX_CIED_GUIDE =
             "http://hl7.org/fhir/uv/cardx-cied/ImplementationGuide/hl7.fhir.uv.cardx-cied";
     public static final String PATIENT_PROFILE = CARDX_CIED_PROFILE_BASE + "cied-patient";
-    static final String DEVICE_PROFILE = CARDX_CIED_PROFILE_BASE + "cied-device";
+    public static final String DEVICE_PROFILE = CARDX_CIED_PROFILE_BASE + "cied-device";
     static final String MONITOR_PROFILE = CARDX_CIED_PROFILE_BASE + "cied-monitor";
     static final String CONNECTIVITY_PROFILE = CARDX_CIED_PROFILE_BASE + "cied-connectivity-status";
 

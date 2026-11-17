@@ -24,8 +24,8 @@ public class PatientService {
         this.validator = validator;
     }
 
-    public Patient getCiedPatient(String customerId, String merlinNetId) {
-        var source = client.getPatient(customerId, merlinNetId);
+    public Patient getCiedPatient(String customerId, String patientId) {
+        var source = client.getPatient(customerId, patientId);
         Patient patient;
         try {
             patient = mapper.toFhir(source);

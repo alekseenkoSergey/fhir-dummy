@@ -1,6 +1,7 @@
 package org.example.fhirdummy.controller;
 
 import ca.uhn.fhir.context.FhirContext;
+import org.example.fhirdummy.dto.CapabilityStatementNarrative;
 import org.hl7.fhir.r5.model.CapabilityStatement;
 import org.hl7.fhir.r5.model.CapabilityStatement.RestfulCapabilityMode;
 import org.hl7.fhir.r5.model.CapabilityStatement.TypeRestfulInteraction;
@@ -65,7 +66,9 @@ public class MetadataController {
                 .setType("Device")
                 .addSupportedProfile(ProfileValidation.DEVICE_PROFILE)
                 .addSupportedProfile(ProfileValidation.MONITOR_PROFILE)
-                .setDocumentation("Implanted devices and monitors are mapped from device data returned for a patient.");
+                .setDocumentation("GET Device/{clinicId:patientId} returns the first device in the patient's device list. "
+                        + "The optional _profile parameter defaults to the CIED Device profile.")
+                .addInteraction().setCode(TypeRestfulInteraction.READ);
 
         server.addResource()
                 .setType("Observation")

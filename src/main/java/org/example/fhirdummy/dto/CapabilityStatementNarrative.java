@@ -1,14 +1,14 @@
-package org.example.fhirdummy.controller;
+package org.example.fhirdummy.dto;
 
 import org.hl7.fhir.r5.model.CapabilityStatement;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
-final class CapabilityStatementNarrative {
+public final class CapabilityStatementNarrative {
     private CapabilityStatementNarrative() {}
 
-    static XhtmlNode render(CapabilityStatement statement) {
+    public static XhtmlNode render(CapabilityStatement statement) {
         var div = new XhtmlNode(NodeType.Element, "div").setAttribute("xmlns", XhtmlComposer.XHTML_NS);
         div.addTag("h1").addText(statement.getName());
         div.addTag("p").addText(statement.getImplementation().getDescription());
