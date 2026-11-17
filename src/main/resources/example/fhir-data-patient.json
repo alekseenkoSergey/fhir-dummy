@@ -1,0 +1,40 @@
+{
+  "merlinNetId": "372673970",
+  "firstName": "200650047",
+  "middleName": "Oklaqwe",
+  "lastName": "119B",
+  "gender": "female",
+  "dateOfBirth": "1961-01-01",
+  "race": null,
+  "locationName": null,
+  "enrollmentDate": "2026-06-04",
+  "patientStatus": "Active",
+  "phone": "+44-11-1112222",
+  "email": "vipul.mirgal@abbott.com",
+  "address": {
+    "address1": "13150 TF Ave",
+    "address2": null,
+    "address3": null,
+    "city": "Sylmar",
+    "state": null,
+    "country": "Great Britain",
+    "zipCode": null
+  },
+  "devices": [
+    {
+      "deviceModelNum": "5500",
+      "deviceSerialNum": "200650047",
+      "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+      "lastConnectionType": "Mobile Communication",
+      "lastCommunicationDate": "2026-06-30",
+      "lastDeviceCheckDate": "2026-06-29",
+      "soonzeUntilDate": "2026-09-09"
+    }
+  ],
+  "transmitter": {
+    "transmitterSerialNum": null,
+    "transmitterModelNum": null,
+    "appModelNum": "APP1001"
+  },
+  "connectivityStatus": "DISCONNECTED"
+}

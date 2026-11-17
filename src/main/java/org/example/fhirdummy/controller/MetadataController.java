@@ -55,7 +55,9 @@ public class MetadataController {
         var patient = server.addResource()
                 .setType("Patient")
                 .addSupportedProfile(ProfileValidation.PATIENT_PROFILE)
-                .setDocumentation("Planned: read a patient by ID and list patients within a single My clinic.");
+                .setDocumentation("GET Patient/{clinicId:patientId} returns a Patient mapped from the patient data service. "
+                        + "The optional _profile parameter defaults to the CIED Patient profile. "
+                        + "Listing patients by clinic is planned.");
         patient.addInteraction().setCode(TypeRestfulInteraction.READ);
         patient.addInteraction().setCode(TypeRestfulInteraction.SEARCHTYPE);
 

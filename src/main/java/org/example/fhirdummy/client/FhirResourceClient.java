@@ -8,6 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.stream.Stream;
+
+@Deprecated
 @Service
 public class FhirResourceClient {
     private final IGenericClient client;
@@ -17,10 +20,14 @@ public class FhirResourceClient {
     }
 
     public <T extends Resource> T getExampleResource(Class<T> resourceType) {
+        return search(resourceType, 1).findFirst().orElseThrow(() -> noResourceFound(resourceType));
+    }
+
+    private <T extends Resource> Stream<T> search(Class<T> resourceType, int count) {
         Bundle bundle;
         try {
             bundle = client.search().forResource(resourceType)
-                    .count(1).returnBundle(Bundle.class).execute();
+                    .count(count).returnBundle(Bundle.class).execute();
         } catch (BaseServerResponseException exception) {
             throw new ResponseStatusException(HttpStatus.BAD_GATEWAY,
                     "FHIR server request failed", exception);
@@ -28,9 +35,11 @@ public class FhirResourceClient {
         return bundle.getEntry().stream()
                 .map(Bundle.BundleEntryComponent::getResource)
                 .filter(resourceType::isInstance)
-                .map(resourceType::cast)
-                .findFirst()
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
-                        "No " + resourceType.getSimpleName() + " found on the FHIR server"));
+                .map(resourceType::cast);
+    }
+
+    private ResponseStatusException noResourceFound(Class<? extends Resource> resourceType) {
+        return new ResponseStatusException(HttpStatus.NOT_FOUND,
+                "No " + resourceType.getSimpleName() + " found on the FHIR server");
     }
 }

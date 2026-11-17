@@ -1,0 +1,3827 @@
+{
+  "clinic": {
+    "name": "patientapp"
+  },
+  "patients": [
+    {
+      "merlinNetId": "155406945",
+      "firstName": "200522263",
+      "middleName": null,
+      "lastName": "Offshore",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-28",
+      "patientStatus": "Active",
+      "phone": "+91-9860579420",
+      "email": "uchil.bishal@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "200522263",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-05-20",
+          "lastDeviceCheckDate": "2026-05-20",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1001"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "581325826",
+      "firstName": "119A",
+      "middleName": null,
+      "lastName": "ICM2.3_200371249",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-27",
+      "patientStatus": "Active",
+      "phone": "+1-818-2825384",
+      "email": "vipul.mirgal@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "200371249",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-08-10",
+          "lastDeviceCheckDate": "2026-08-10",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1001"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "076808054",
+      "firstName": "511001655",
+      "middleName": null,
+      "lastName": "511001655",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-27",
+      "patientStatus": "Active",
+      "phone": "+1-234-5678910",
+      "email": "tyler.walters@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "511001655",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-10-28",
+          "lastDeviceCheckDate": "2026-06-06",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1000"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "479203762",
+      "firstName": "9395040",
+      "middleName": null,
+      "lastName": "PA-109B",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-29",
+      "patientStatus": "Active",
+      "phone": "+44",
+      "email": "anton.simonov@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "3500",
+          "deviceSerialNum": "9395045",
+          "deviceDescription": "Confirm Rx™ ICM, DM3500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "503424905",
+      "firstName": "810141627",
+      "middleName": null,
+      "lastName": "810141627",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-24",
+      "patientStatus": "Active",
+      "phone": "+1-949-5663024",
+      "email": "vipul.mirgal@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "CDHFA500Q",
+          "deviceSerialNum": "810101627",
+          "deviceDescription": "Gallant™ HF, CDHFA500Q",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "649645090",
+      "firstName": "Priyanka",
+      "middleName": null,
+      "lastName": "Gopakumar",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-17",
+      "patientStatus": "Active",
+      "phone": "+01-650-9962038",
+      "email": "priyanka.gopakumar@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "511089088",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "569356496",
+      "firstName": "109A 2.x",
+      "middleName": null,
+      "lastName": "511001633",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-06-25",
+      "patientStatus": "Active",
+      "phone": "+91-771-5033139",
+      "email": "vipul.mirgal@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5300",
+          "deviceSerialNum": "511001633",
+          "deviceDescription": "Assert-IQ™ 3+ ICM, DM5300",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-08-28",
+          "lastDeviceCheckDate": "2026-08-28",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1000"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "595066572",
+      "firstName": "200521265",
+      "middleName": null,
+      "lastName": "CRM BKC",
+      "gender": null,
+      "dateOfBirth": "1960-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-29",
+      "patientStatus": "Active",
+      "phone": "+91-9860579420",
+      "email": "uchil.bishal@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "999921265",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "423538271",
+      "firstName": "PA-100J",
+      "middleName": null,
+      "lastName": "ICM2.3_200363239",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-07-07",
+      "patientStatus": "Active",
+      "phone": "+1-818-2825384",
+      "email": "santosh.chopade@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "200363239",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-08-19",
+          "lastDeviceCheckDate": "2026-08-19",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1001"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "002713956",
+      "firstName": "511001667",
+      "middleName": null,
+      "lastName": "CAN test device",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-17",
+      "patientStatus": "Active",
+      "phone": "+1-818-9437203",
+      "email": "vipul.mirgal@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5300",
+          "deviceSerialNum": "123091667",
+          "deviceDescription": "Assert-IQ™ 3+ ICM, DM5300",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "988727913",
+      "firstName": "Offhshore Dummy",
+      "middleName": null,
+      "lastName": "90000000",
+      "gender": null,
+      "dateOfBirth": "1956-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-29",
+      "patientStatus": "Active",
+      "phone": "+91-889-8784841",
+      "email": "ashish.pandey4@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "90000000",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "794815605",
+      "firstName": "511002084",
+      "middleName": null,
+      "lastName": "Test Device",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-16",
+      "patientStatus": "Active",
+      "phone": "+1-818-9437203",
+      "email": "vipul.mirgal@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5300",
+          "deviceSerialNum": "511002084",
+          "deviceDescription": "Assert-IQ™ 3+ ICM, DM5300",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-08-07",
+          "lastDeviceCheckDate": "2026-08-07",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1001"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "755330016",
+      "firstName": "5880661",
+      "middleName": null,
+      "lastName": "5880661",
+      "gender": "Male",
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-07-15",
+      "patientStatus": "Active",
+      "phone": "+33",
+      "email": "sameersatish.patil@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "FRANCE",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "4500",
+          "deviceSerialNum": "5880661",
+          "deviceDescription": "Jot Dx™ ICM, DM4500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "692933377",
+      "firstName": "511001650",
+      "middleName": null,
+      "lastName": "511001650",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-07-11",
+      "patientStatus": "Active",
+      "phone": "+44",
+      "email": "vipul.mirgal@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5300",
+          "deviceSerialNum": "123001650",
+          "deviceDescription": "Assert-IQ™ 3+ ICM, DM5300",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "703148809",
+      "firstName": "111001827",
+      "middleName": null,
+      "lastName": "111001827",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-06-10",
+      "patientStatus": "Active",
+      "phone": "+1-818-2825384",
+      "email": "santosh.chopade@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "CDHFA500Q",
+          "deviceSerialNum": "654001827",
+          "deviceDescription": "Gallant™ HF, CDHFA500Q",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "380489591",
+      "firstName": "5891808",
+      "middleName": null,
+      "lastName": "Peter",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-27",
+      "patientStatus": "Explanted",
+      "phone": "+44-818-4932136",
+      "email": "peter.ji1@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "4500",
+          "deviceSerialNum": "5891808",
+          "deviceDescription": "Jot Dx™ ICM, DM4500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-08-17",
+          "lastDeviceCheckDate": "2026-08-17",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1000"
+      },
+      "connectivityStatus": "UNENROLLED"
+    },
+    {
+      "merlinNetId": "342965720",
+      "firstName": "810141777",
+      "middleName": null,
+      "lastName": "810141777",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-24",
+      "patientStatus": "Explanted",
+      "phone": "+1-234-5678910",
+      "email": "vipul.mirgal@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "CDHFA500Q",
+          "deviceSerialNum": "810141777",
+          "deviceDescription": "Gallant™ HF, CDHFA500Q",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-06-23",
+          "lastDeviceCheckDate": "2026-06-23",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1005"
+      },
+      "connectivityStatus": "UNENROLLED"
+    },
+    {
+      "merlinNetId": "792768640",
+      "firstName": "111064902",
+      "middleName": null,
+      "lastName": "Abbott BKC",
+      "gender": null,
+      "dateOfBirth": "1960-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-21",
+      "patientStatus": "Explanted",
+      "phone": "+91-8983158138",
+      "email": "rajeshvijay.sonar@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "CDHFA700Q",
+          "deviceSerialNum": "111064902",
+          "deviceDescription": "Avant™ HF, CDHFA700Q",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-07-14",
+          "lastDeviceCheckDate": "2026-07-13",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1005"
+      },
+      "connectivityStatus": "UNENROLLED"
+    },
+    {
+      "merlinNetId": "395068786",
+      "firstName": "Test",
+      "middleName": null,
+      "lastName": "ProdContentURL",
+      "gender": null,
+      "dateOfBirth": "1980-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-06-15",
+      "patientStatus": "Explanted",
+      "phone": "+44",
+      "email": "tamara.krokhinova@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "CDDRA300T",
+          "deviceSerialNum": "265400211",
+          "deviceDescription": "Entrant™ DR, CDDRA300T",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-06-15",
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1004"
+      },
+      "connectivityStatus": "UNENROLLED"
+    },
+    {
+      "merlinNetId": "045782521",
+      "firstName": "ICM",
+      "middleName": null,
+      "lastName": "2",
+      "gender": null,
+      "dateOfBirth": "1960-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-29",
+      "patientStatus": "Released/Transfer to Another Clinic",
+      "phone": "+44-123-1232134",
+      "email": null,
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "100001126",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "TRANSFERRED"
+    },
+    {
+      "merlinNetId": "766015622",
+      "firstName": "200131204",
+      "middleName": null,
+      "lastName": "200131204",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-13",
+      "patientStatus": "Active",
+      "phone": "+1-818-2825384",
+      "email": "santosh.chopade@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "200131204",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-07-08",
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1001"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "640109906",
+      "firstName": "200703243",
+      "middleName": null,
+      "lastName": "119C",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-18",
+      "patientStatus": "Active",
+      "phone": "+1-949-5663024",
+      "email": "vipul.mirgal@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "200703243",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-08-10",
+          "lastDeviceCheckDate": "2026-07-23",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1001"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "802987438",
+      "firstName": "ICM 2.3",
+      "middleName": null,
+      "lastName": "PA-104A_200757254",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-14",
+      "patientStatus": "Active",
+      "phone": "+1-818-2825384",
+      "email": "santosh.chopade@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "400757254",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "598142768",
+      "firstName": "511001634",
+      "middleName": null,
+      "lastName": "511001634",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-27",
+      "patientStatus": "Active",
+      "phone": "+1-234-5678910",
+      "email": "tyler.walters@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "1001634",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "160357737",
+      "firstName": "5667584",
+      "middleName": null,
+      "lastName": "Offshore",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-19",
+      "patientStatus": "Explanted/Removed from Follow-up",
+      "phone": "+91-889-9819538949",
+      "email": "ashish.pandey4@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "3500",
+          "deviceSerialNum": "5667584",
+          "deviceDescription": "Confirm Rx™ ICM, DM3500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-07-09",
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1000"
+      },
+      "connectivityStatus": "UNENROLLED"
+    },
+    {
+      "merlinNetId": "613907252",
+      "firstName": "108A",
+      "middleName": null,
+      "lastName": "200598212",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-06-12",
+      "patientStatus": "Active",
+      "phone": "+44",
+      "email": "anton.simonov@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "200598212",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-09-07",
+          "lastDeviceCheckDate": "2026-09-01",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1000"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "869245449",
+      "firstName": "8008565",
+      "middleName": null,
+      "lastName": "8008565",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-06-10",
+      "patientStatus": "Active",
+      "phone": "+44",
+      "email": "jayant.kaned@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "CDHFA700Q",
+          "deviceSerialNum": "7708565",
+          "deviceDescription": "Avant™ HF, CDHFA700Q",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "930820204",
+      "firstName": "WRONG MODEL",
+      "middleName": null,
+      "lastName": "9250371",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-06-09",
+      "patientStatus": "Active",
+      "phone": "+44",
+      "email": "crm.mse.vv@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "CDVRA500T",
+          "deviceSerialNum": "9320371",
+          "deviceDescription": "Gallant™ VR, CDVRA500T",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "997134986",
+      "firstName": "Varun",
+      "middleName": null,
+      "lastName": "511001662",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-07",
+      "patientStatus": "Active",
+      "phone": "+1-408-6660152",
+      "email": "varun.gnanasekaran@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5300",
+          "deviceSerialNum": "511001662",
+          "deviceDescription": "Assert-IQ™ 3+ ICM, DM5300",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-07-14",
+          "lastDeviceCheckDate": "2026-07-08",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1001"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "579218710",
+      "firstName": "100M",
+      "middleName": null,
+      "lastName": "ICM2.3_200076241",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-30",
+      "patientStatus": "Active",
+      "phone": "+1-949-5663024",
+      "email": "santosh.chopade@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "20009898",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "357087980",
+      "firstName": "ICM2.3",
+      "middleName": null,
+      "lastName": "Santosh Desk_200711247",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-21",
+      "patientStatus": "Active",
+      "phone": "+1-818-2825384",
+      "email": "santosh.chopade@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "24711247",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "530327618",
+      "firstName": "Jon",
+      "middleName": null,
+      "lastName": "Doe",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-05",
+      "patientStatus": "Explanted",
+      "phone": "+1-682-5970539",
+      "email": "amit.shrivastva@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5300",
+          "deviceSerialNum": "511001668",
+          "deviceDescription": "Assert-IQ™ 3+ ICM, DM5300",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-07-01",
+          "lastDeviceCheckDate": "2026-06-27",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1000"
+      },
+      "connectivityStatus": "UNENROLLED"
+    },
+    {
+      "merlinNetId": "176677854",
+      "firstName": "200694261",
+      "middleName": null,
+      "lastName": "Offshore_W0183",
+      "gender": null,
+      "dateOfBirth": "1960-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-12",
+      "patientStatus": "Active",
+      "phone": "+91-7715033139",
+      "email": "ketaki.patil@abbott.com",
+      "address": {
+        "address1": "Telfair",
+        "address2": "Telfair",
+        "address3": "Telfair",
+        "city": "LA",
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": "90261"
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "288694261",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "038188470",
+      "firstName": "Ratna",
+      "middleName": null,
+      "lastName": "Saripalli",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-21",
+      "patientStatus": "Active",
+      "phone": "+44",
+      "email": "ratnapriya.saripalli@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "512343435",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "177603396",
+      "firstName": "Yitong_ICM1",
+      "middleName": null,
+      "lastName": "GUO",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-05",
+      "patientStatus": "Active",
+      "phone": "+1-541-9367368",
+      "email": "yitong.guo@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "4500",
+          "deviceSerialNum": "3398208",
+          "deviceDescription": "Jot Dx™ ICM, DM4500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "787632660",
+      "firstName": "200170256",
+      "middleName": null,
+      "lastName": "200170256",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-30",
+      "patientStatus": "Active",
+      "phone": "+91-889-8784841",
+      "email": "andrew.won@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5300",
+          "deviceSerialNum": "880170256",
+          "deviceDescription": "Assert-IQ™ 3+ ICM, DM5300",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "837880301",
+      "firstName": "9281113",
+      "middleName": null,
+      "lastName": "9281113",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-30",
+      "patientStatus": "Active",
+      "phone": "+1-234-5678910",
+      "email": "ashish.pandey4@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "3500",
+          "deviceSerialNum": "1511113",
+          "deviceDescription": "Confirm Rx™ ICM, DM3500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "073130908",
+      "firstName": "3314203",
+      "middleName": null,
+      "lastName": "3500, 1.x",
+      "gender": null,
+      "dateOfBirth": "1960-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-12",
+      "patientStatus": "Active",
+      "phone": "+91-9860579420",
+      "email": "uchil.bishal@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "3500",
+          "deviceSerialNum": "9914203",
+          "deviceDescription": "Confirm Rx™ ICM, DM3500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "858024995",
+      "firstName": "iOS",
+      "middleName": null,
+      "lastName": "Yna",
+      "gender": null,
+      "dateOfBirth": "1980-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-06-15",
+      "patientStatus": "Active",
+      "phone": "+44",
+      "email": "tamara@gmail.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "CDHFA300T",
+          "deviceSerialNum": "456745757",
+          "deviceDescription": "Entrant™ HF, CDHFA300T",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-06-15",
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1005"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "664061082",
+      "firstName": "Dale",
+      "middleName": null,
+      "lastName": "Smith",
+      "gender": null,
+      "dateOfBirth": "1960-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-18",
+      "patientStatus": "Active",
+      "phone": "+44-555-1234567",
+      "email": null,
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5300",
+          "deviceSerialNum": "73916452",
+          "deviceDescription": "Assert-IQ™ 3+ ICM, DM5300",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "785110933",
+      "firstName": "PA_120C",
+      "middleName": null,
+      "lastName": "ICM2.3_200755252",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-01",
+      "patientStatus": "Active",
+      "phone": "+1-818-2825384",
+      "email": "santosh.chopade@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "123755255",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "480500933",
+      "firstName": "ICM2.3",
+      "middleName": null,
+      "lastName": "Test_108A",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-18",
+      "patientStatus": "Active",
+      "phone": "+1-818-2825384",
+      "email": "santosh.chopade@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "151598212",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "464789676",
+      "firstName": "test",
+      "middleName": null,
+      "lastName": "test",
+      "gender": null,
+      "dateOfBirth": "1960-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-21",
+      "patientStatus": "Active",
+      "phone": "+44",
+      "email": null,
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "3371-40",
+          "deviceSerialNum": "7294194",
+          "deviceDescription": "Quadra Assura MP™, 3371-40",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "838907459",
+      "firstName": "Offshore",
+      "middleName": null,
+      "lastName": "511002261",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-29",
+      "patientStatus": "Active",
+      "phone": "+91-889-9819538949",
+      "email": "ketaki.patil@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "511002261",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-08-05",
+          "lastDeviceCheckDate": "2026-07-25",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1000"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "640763652",
+      "firstName": "511002263",
+      "middleName": null,
+      "lastName": "Offshore_CAN",
+      "gender": null,
+      "dateOfBirth": "1960-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-20",
+      "patientStatus": "Active",
+      "phone": "+91-9860579420",
+      "email": "uchil.bishal@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "511002263",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-07-27",
+          "lastDeviceCheckDate": "2026-07-27",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1000"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "549381408",
+      "firstName": "PA-100R",
+      "middleName": null,
+      "lastName": "511002275",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-20",
+      "patientStatus": "Active",
+      "phone": "+1-818-2825384",
+      "email": "anton.simonov@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "511992275",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "030723274",
+      "firstName": "111064993",
+      "middleName": null,
+      "lastName": "111064993",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-28",
+      "patientStatus": "Active",
+      "phone": "+44",
+      "email": "andrew.won@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "CDHFA500Q",
+          "deviceSerialNum": "166064993",
+          "deviceDescription": "Gallant™ HF, CDHFA500Q",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "580934412",
+      "firstName": "ICM2.3",
+      "middleName": null,
+      "lastName": "9338158_PA-100C",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-19",
+      "patientStatus": "Active",
+      "phone": "+1-818-2825384",
+      "email": "santosh.chopade@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "3500",
+          "deviceSerialNum": "1238158",
+          "deviceDescription": "Confirm Rx™ ICM, DM3500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "086615648",
+      "firstName": "810141659",
+      "middleName": null,
+      "lastName": "810141659",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-06-09",
+      "patientStatus": "Active",
+      "phone": "+44",
+      "email": "andrew.won@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "CDHFA500Q",
+          "deviceSerialNum": "810141659",
+          "deviceDescription": "Gallant™ HF, CDHFA500Q",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-06-17",
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "964465454",
+      "firstName": "511001981",
+      "middleName": null,
+      "lastName": "511001981",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-30",
+      "patientStatus": "Active",
+      "phone": "+1-111-1111111",
+      "email": "tyler.walters@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "151001981",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-07-03",
+          "lastDeviceCheckDate": "2026-07-03",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1001"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "805765724",
+      "firstName": "PA-104C",
+      "middleName": null,
+      "lastName": "511001861",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-19",
+      "patientStatus": "Active",
+      "phone": "+44-111-1111111",
+      "email": "anton.simonov@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "511001861",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-06-16",
+          "lastDeviceCheckDate": "2026-06-16",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1001"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "989701776",
+      "firstName": "511002265",
+      "middleName": null,
+      "lastName": "511002265",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-29",
+      "patientStatus": "Active",
+      "phone": "+91-7350789380",
+      "email": "uchil.bishal@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5300",
+          "deviceSerialNum": "111002265",
+          "deviceDescription": "Assert-IQ™ 3+ ICM, DM5300",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "337361331",
+      "firstName": "9189154",
+      "middleName": null,
+      "lastName": "PA-112B",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-29",
+      "patientStatus": "Active",
+      "phone": "+44",
+      "email": "vipul.mirgal@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "4500",
+          "deviceSerialNum": "189150",
+          "deviceDescription": "Jot Dx™ ICM, DM4500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "721245470",
+      "firstName": "9336192",
+      "middleName": null,
+      "lastName": "PA-101A",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-06-01",
+      "patientStatus": "Active",
+      "phone": "+44",
+      "email": "anton.simonov@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "4500",
+          "deviceSerialNum": "7526192",
+          "deviceDescription": "Jot Dx™ ICM, DM4500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "530509041",
+      "firstName": "9356180",
+      "middleName": null,
+      "lastName": "9356180",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-19",
+      "patientStatus": "Active",
+      "phone": "+44",
+      "email": "peter.ji1@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "3500",
+          "deviceSerialNum": "9356180",
+          "deviceDescription": "Confirm Rx™ ICM, DM3500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-07-24",
+          "lastDeviceCheckDate": "2026-07-24",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1000"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "365175009",
+      "firstName": "3182253",
+      "middleName": null,
+      "lastName": "_BKC",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-29",
+      "patientStatus": "Active",
+      "phone": "+91-7350789380",
+      "email": "jayant.kaned@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "3500",
+          "deviceSerialNum": "3199953",
+          "deviceDescription": "Confirm Rx™ ICM, DM3500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "177179769",
+      "firstName": "200725248",
+      "middleName": null,
+      "lastName": "200725248",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-06-01",
+      "patientStatus": "Active",
+      "phone": "+1-818-2825384",
+      "email": "uchil.bishal@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "200725248",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-09-15",
+          "lastDeviceCheckDate": "2026-09-01",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1000"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "227089851",
+      "firstName": "51100fffff",
+      "middleName": "icm 2.x can",
+      "lastName": "51100fffff",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-21",
+      "patientStatus": "Active",
+      "phone": "+1-949-5663024",
+      "email": "anton.simonov@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "511009993",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "532448743",
+      "firstName": "511001849",
+      "middleName": null,
+      "lastName": "Test",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-16",
+      "patientStatus": "Active",
+      "phone": "+1-818-2825384",
+      "email": "anton.simonov@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5300",
+          "deviceSerialNum": "511001849",
+          "deviceDescription": "Assert-IQ™ 3+ ICM, DM5300",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-09-04",
+          "lastDeviceCheckDate": "2026-09-02",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1000"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "791295686",
+      "firstName": "PA-104B",
+      "middleName": null,
+      "lastName": "511001857",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-19",
+      "patientStatus": "Active",
+      "phone": "+44-111-1111111111",
+      "email": "anton.simonov@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5300",
+          "deviceSerialNum": "511001917",
+          "deviceDescription": "Assert-IQ™ 3+ ICM, DM5300",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "710261553",
+      "firstName": "ICM2.3",
+      "middleName": null,
+      "lastName": "200203194",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-30",
+      "patientStatus": "Active",
+      "phone": "+1-818-2825384",
+      "email": "santosh.chopade@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "123203194",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "630166593",
+      "firstName": "511001859sssssssssssssssssssssssssssssssssssssssssa asasasasasffdwerwqeweqewqdwds sadasdsdasdasdasda",
+      "middleName": null,
+      "lastName": "100G",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-23",
+      "patientStatus": "Active",
+      "phone": "+44",
+      "email": "uchil.bishal@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5300",
+          "deviceSerialNum": "123001859",
+          "deviceDescription": "Assert-IQ™ 3+ ICM, DM5300",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "050398411",
+      "firstName": "ICM 2.3",
+      "middleName": null,
+      "lastName": "PA-110B_200131304",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-06-02",
+      "patientStatus": "Active",
+      "phone": "+1-818-2825384",
+      "email": "santosh.chopade@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "200131304",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "653557348",
+      "firstName": "1090380",
+      "middleName": null,
+      "lastName": "Abbott BKC",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-06-10",
+      "patientStatus": "Active",
+      "phone": "+44",
+      "email": "jayant.kaned@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "CDHFA500Q",
+          "deviceSerialNum": "9090380",
+          "deviceDescription": "Gallant™ HF, CDHFA500Q",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-06-12",
+          "lastDeviceCheckDate": "2026-06-12",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "590002598",
+      "firstName": "john",
+      "middleName": null,
+      "lastName": "doe",
+      "gender": null,
+      "dateOfBirth": "1990-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-06-01",
+      "patientStatus": "Active",
+      "phone": "+44",
+      "email": null,
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "1107-30",
+          "deviceSerialNum": "236573",
+          "deviceDescription": "Current™ VR, 1107-30",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "986909109",
+      "firstName": "ICM 2.3",
+      "middleName": null,
+      "lastName": "PA-100K_9917131",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-26",
+      "patientStatus": "Active",
+      "phone": "+1-818-2825384",
+      "email": "santosh.chopade@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "3500",
+          "deviceSerialNum": "7717131",
+          "deviceDescription": "Confirm Rx™ ICM, DM3500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "992810986",
+      "firstName": "PA-120C",
+      "middleName": null,
+      "lastName": "200755255",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-29",
+      "patientStatus": "Active",
+      "phone": "+1-949-5663024",
+      "email": "jayant.kaned@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "200755255",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-08-03",
+          "lastDeviceCheckDate": "2026-08-02",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1000"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "938758646",
+      "firstName": "200768250",
+      "middleName": null,
+      "lastName": "200768250",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-20",
+      "patientStatus": "Active",
+      "phone": "+44",
+      "email": "crm.mse.vv@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "123768250",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "774370209",
+      "firstName": "9330055",
+      "middleName": null,
+      "lastName": "9330055",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-06-03",
+      "patientStatus": "Active",
+      "phone": "+44",
+      "email": "uchil.bishal@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "3500",
+          "deviceSerialNum": "6780055",
+          "deviceDescription": "Confirm Rx™ ICM, DM3500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "906081765",
+      "firstName": "200412240",
+      "middleName": null,
+      "lastName": "200412240",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-20",
+      "patientStatus": "Active",
+      "phone": "+44",
+      "email": "crm.mse.vv@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "800412240",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "657628574",
+      "firstName": "3314199",
+      "middleName": null,
+      "lastName": "Offshore",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-06-03",
+      "patientStatus": "Active",
+      "phone": "+91-771-5033139",
+      "email": "ketaki.patil@abbott.com",
+      "address": {
+        "address1": "Telfair",
+        "address2": "Telfair",
+        "address3": "Telfair",
+        "city": "LA",
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": "90261"
+      },
+      "devices": [
+        {
+          "deviceModelNum": "3500",
+          "deviceSerialNum": "3314199",
+          "deviceDescription": "Confirm Rx™ ICM, DM3500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-07-13",
+          "lastDeviceCheckDate": "2026-07-09",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1001"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "545149379",
+      "firstName": "mkjm",
+      "middleName": null,
+      "lastName": "njnjb",
+      "gender": "Female",
+      "dateOfBirth": "1980-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-08-21",
+      "patientStatus": "Active",
+      "phone": "+33-818-7415427",
+      "email": "tamara.krokhinova@abbott.com",
+      "address": {
+        "address1": "123 Friar st",
+        "address2": "123 Friar st",
+        "address3": "777 Main St.",
+        "city": "Main",
+        "state": "CALIFORNIA",
+        "country": "FRANCE",
+        "zipCode": "99999"
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5000",
+          "deviceSerialNum": "487444878",
+          "deviceDescription": "Assert-IQ™ 3 ICM, DM5000",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "582338422",
+      "firstName": "200345252",
+      "middleName": null,
+      "lastName": "200345252",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-06-01",
+      "patientStatus": "Active",
+      "phone": "+44",
+      "email": "crm.mse.vv@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "151345252",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "723669321",
+      "firstName": "Varun",
+      "middleName": null,
+      "lastName": "JotDX",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-07-09",
+      "patientStatus": "Patient Expired",
+      "phone": "+1-408-6660152",
+      "email": "varun.gnanasekaran@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "4500",
+          "deviceSerialNum": "3398185",
+          "deviceDescription": "Jot Dx™ ICM, DM4500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-08-17",
+          "lastDeviceCheckDate": "2026-08-17",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1000"
+      },
+      "connectivityStatus": "UNENROLLED"
+    },
+    {
+      "merlinNetId": "120594676",
+      "firstName": "Ratna",
+      "middleName": null,
+      "lastName": "Saripalli",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-06-15",
+      "patientStatus": "Active",
+      "phone": "+44",
+      "email": "ratnapriya.saripalli@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "10000000",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "519987135",
+      "firstName": "511001854",
+      "middleName": null,
+      "lastName": "511001854",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-28",
+      "patientStatus": "Active",
+      "phone": "+91-889-8784841",
+      "email": "vipul.mirgal@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "51991854",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "887991784",
+      "firstName": "ICM2.3",
+      "middleName": null,
+      "lastName": "511001858",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-30",
+      "patientStatus": "Active",
+      "phone": "+1-949-5663024",
+      "email": "santosh.chopade@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "871001858",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "744786112",
+      "firstName": "ICM 2.3",
+      "middleName": null,
+      "lastName": "PA-104A_200757254",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-29",
+      "patientStatus": "Active",
+      "phone": "+1-818-2825384",
+      "email": "santosh.chopade@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "456757254",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "069313468",
+      "firstName": "200666264",
+      "middleName": null,
+      "lastName": "_BKC",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-21",
+      "patientStatus": "Active",
+      "phone": "+44",
+      "email": "jayant.kaned@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "200111264",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "816026033",
+      "firstName": "110A 2.x Interface Board",
+      "middleName": null,
+      "lastName": "200180258",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-08",
+      "patientStatus": "Active",
+      "phone": "+91-7350789380",
+      "email": "santosh.chopade@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "900180258",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "451316111",
+      "firstName": "511001853",
+      "middleName": "101B",
+      "lastName": "511001853",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-20",
+      "patientStatus": "Active",
+      "phone": "+1-949-5663024",
+      "email": "peter.ji1@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "89001853",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "416316693",
+      "firstName": "PA_111A",
+      "middleName": null,
+      "lastName": "200752251",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-30",
+      "patientStatus": "Active",
+      "phone": "+1-818-2825384",
+      "email": "jayant.kaned@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "200752251",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-10-31",
+          "lastDeviceCheckDate": "2026-10-27",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1000"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "549120178",
+      "firstName": "200411238 ICM 2.x",
+      "middleName": null,
+      "lastName": "Pacific-19",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-16",
+      "patientStatus": "Active",
+      "phone": "+1-818-9437203",
+      "email": "santosh.chopade@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "400411238",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "210152385",
+      "firstName": "Kallu",
+      "middleName": null,
+      "lastName": "Tapo",
+      "gender": "Male",
+      "dateOfBirth": "1965-01-21",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-08-05",
+      "patientStatus": "Active",
+      "phone": "+33",
+      "email": "pavitra@gmail.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "FRANCE",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "CDHFA500Q",
+          "deviceSerialNum": "7654921",
+          "deviceDescription": "Gallant™ HF, CDHFA500Q",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "999058324",
+      "firstName": "Dude",
+      "middleName": null,
+      "lastName": "Dude",
+      "gender": "Unknown",
+      "dateOfBirth": "1960-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-10-01",
+      "patientStatus": "Active",
+      "phone": "+33-555-123450",
+      "email": null,
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "FRANCE",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "852369741",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "672182979",
+      "firstName": "200619245",
+      "middleName": null,
+      "lastName": "Pacific21_ICM2x",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-27",
+      "patientStatus": "Active",
+      "phone": "+001-818-4932136",
+      "email": "peter.ji1@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "288619245",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "788532257",
+      "firstName": "111064577",
+      "middleName": null,
+      "lastName": "111064577",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-06-26",
+      "patientStatus": "Active",
+      "phone": "+91-771-5033139",
+      "email": "ketaki.patil@abbott.com",
+      "address": {
+        "address1": "Telfair",
+        "address2": "Telfair",
+        "address3": "Telfair",
+        "city": "LA",
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": "90261"
+      },
+      "devices": [
+        {
+          "deviceModelNum": "CDHFA500Q",
+          "deviceSerialNum": "111064577",
+          "deviceDescription": "Gallant™ HF, CDHFA500Q",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-06-29",
+          "lastDeviceCheckDate": "2026-06-28",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1004"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "688818970",
+      "firstName": "511002260",
+      "middleName": null,
+      "lastName": "_BKC",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-30",
+      "patientStatus": "Active",
+      "phone": "+91-7350789380",
+      "email": "jayant.kaned@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "51777260",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "706934833",
+      "firstName": "9051252",
+      "middleName": null,
+      "lastName": "9051252",
+      "gender": null,
+      "dateOfBirth": "1960-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-07-07",
+      "patientStatus": "Active",
+      "phone": "+91-9860579420",
+      "email": "uchil.bishal@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "3500",
+          "deviceSerialNum": "9051252",
+          "deviceDescription": "Confirm Rx™ ICM, DM3500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-07-07",
+          "lastDeviceCheckDate": "2026-07-07",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1000"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "565875325",
+      "firstName": "NGQ 2.1",
+      "middleName": null,
+      "lastName": "Mid FVR_PA-104C",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-06-10",
+      "patientStatus": "Active",
+      "phone": "+1-949-5663024",
+      "email": "peter.ji1@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "CDHFA700Q",
+          "deviceSerialNum": "9680269",
+          "deviceDescription": "Avant™ HF, CDHFA700Q",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-10-07",
+          "lastDeviceCheckDate": "2026-07-02",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1005"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "029425469",
+      "firstName": "200681246",
+      "middleName": null,
+      "lastName": "Prog 111B",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-28",
+      "patientStatus": "Active",
+      "phone": "+1-818-9437203",
+      "email": "andrew.won@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "200681246",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-09-17",
+          "lastDeviceCheckDate": "2026-08-05",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1001"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "824134142",
+      "firstName": "511002259",
+      "middleName": null,
+      "lastName": "Offshore",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-04",
+      "patientStatus": "Active",
+      "phone": "+91-771-5033139",
+      "email": "ketaki.patil@abbott.com",
+      "address": {
+        "address1": "Telfair",
+        "address2": "Telfair",
+        "address3": "Telfair",
+        "city": "LA",
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": "90261"
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "511002259",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-08-05",
+          "lastDeviceCheckDate": "2026-07-26",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1001"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "389721515",
+      "firstName": "Pavitra",
+      "middleName": null,
+      "lastName": "Patil",
+      "gender": "Female",
+      "dateOfBirth": "2026-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-08-12",
+      "patientStatus": "Active",
+      "phone": "+33-1-814",
+      "email": "pavitrap@gmail.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "FRANCE",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "1224",
+          "deviceSerialNum": "6008008",
+          "deviceDescription": "Accent™ MRI, 1224",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "557467032",
+      "firstName": "Offshore",
+      "middleName": null,
+      "lastName": "511002262",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-21",
+      "patientStatus": "Active",
+      "phone": "+91-889-8784841",
+      "email": "ashish.pandey4@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "511002262",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-07-28",
+          "lastDeviceCheckDate": "2026-07-28",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1001"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "759318462",
+      "firstName": "511002258",
+      "middleName": null,
+      "lastName": "Offshore",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-15",
+      "patientStatus": "Active",
+      "phone": "+91-889-8784841",
+      "email": "uchil.bishal@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "511002258",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-07-22",
+          "lastDeviceCheckDate": "2026-07-13",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1001"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    },
+    {
+      "merlinNetId": "730823572",
+      "firstName": "ICM 2.3",
+      "middleName": null,
+      "lastName": "PA_112_200080242",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-22",
+      "patientStatus": "Active",
+      "phone": "+1-818-2825384",
+      "email": "vipul.mirgal@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "151080242",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "556447753",
+      "firstName": "511001829",
+      "middleName": "icm 2.x",
+      "lastName": "511001829",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-06-19",
+      "patientStatus": "Active",
+      "phone": "+1-949-5663024",
+      "email": "jayant.kaned@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "511009929",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "333852648",
+      "firstName": "a",
+      "middleName": null,
+      "lastName": "a",
+      "gender": "Female",
+      "dateOfBirth": "1980-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-09-02",
+      "patientStatus": "Active",
+      "phone": "+33",
+      "email": null,
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "FRANCE",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "3251-40",
+          "deviceSerialNum": "745638",
+          "deviceDescription": "Unify Quadra™, 3251-40",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "714923943",
+      "firstName": "511001852",
+      "middleName": null,
+      "lastName": "511001852 ",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-20",
+      "patientStatus": "Active",
+      "phone": "+1-949-5663024",
+      "email": "anton.simonov@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "511331852",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "NOT_SETUP"
+    },
+    {
+      "merlinNetId": "796170165",
+      "firstName": "ICM2.3_511001851",
+      "middleName": null,
+      "lastName": "PA_107A",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-05-04",
+      "patientStatus": "Active",
+      "phone": "+1-818-2825384",
+      "email": "uchil.bishal@abbott.com",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "city": null,
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5300",
+          "deviceSerialNum": "511001851",
+          "deviceDescription": "Assert-IQ™ 3+ ICM, DM5300",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-11-10",
+          "lastDeviceCheckDate": "2026-11-10",
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1000"
+      },
+      "connectivityStatus": "CONNECTED"
+    },
+    {
+      "merlinNetId": "430605477",
+      "firstName": "200170256",
+      "middleName": "dfafadfafa",
+      "lastName": "200170256",
+      "gender": "Male",
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-04-21",
+      "patientStatus": "Explanted/Removed from Follow-up",
+      "phone": "+1-949-5663024",
+      "email": "andrew.won@abbott.com",
+      "address": {
+        "address1": "123 main st",
+        "address2": "Line 2",
+        "address3": "Line 3",
+        "city": "Sylmar",
+        "state": "CALIFORNIA",
+        "country": "USA",
+        "zipCode": "91342"
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "600170256",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": null,
+          "lastCommunicationDate": null,
+          "lastDeviceCheckDate": null,
+          "soonzeUntilDate": null
+        }
+      ],
+      "transmitter": null,
+      "connectivityStatus": "UNENROLLED"
+    },
+    {
+      "merlinNetId": "372673970",
+      "firstName": "200650047",
+      "middleName": null,
+      "lastName": "119B",
+      "gender": null,
+      "dateOfBirth": "1961-01-01",
+      "race": null,
+      "locationName": null,
+      "enrollmentDate": "2026-06-04",
+      "patientStatus": "Active",
+      "phone": "+44-11-1112222",
+      "email": "vipul.mirgal@abbott.com",
+      "address": {
+        "address1": "13150 TF Ave",
+        "address2": null,
+        "address3": null,
+        "city": "Sylmar",
+        "state": null,
+        "country": "Great Britain",
+        "zipCode": null
+      },
+      "devices": [
+        {
+          "deviceModelNum": "5500",
+          "deviceSerialNum": "200650047",
+          "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+          "lastConnectionType": "Mobile Communication",
+          "lastCommunicationDate": "2026-06-30",
+          "lastDeviceCheckDate": "2026-06-29",
+          "soonzeUntilDate": "2026-09-09"
+        }
+      ],
+      "transmitter": {
+        "transmitterSerialNum": null,
+        "transmitterModelNum": null,
+        "appModelNum": "APP1001"
+      },
+      "connectivityStatus": "DISCONNECTED"
+    }
+  ]
+}

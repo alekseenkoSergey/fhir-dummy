@@ -4,6 +4,8 @@ spring:
 
 fhir:
   public-base-url: ${FHIR_PUBLIC_BASE_URL:}
+  patient-data:
+    base-url: ${DATA_BASE_URL:http://localhost:${server.port:8080}}
   server:
     base-url: ${FHIR_SERVER_BASE_URL:https://hapi.fhir.org/baseR5}
   cardx-cied:

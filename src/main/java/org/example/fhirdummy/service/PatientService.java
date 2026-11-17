@@ -1,0 +1,42 @@
+package org.example.fhirdummy.service;
+
+import ca.uhn.fhir.validation.FhirValidator;
+import org.example.fhirdummy.client.PatientDataClient;
+import org.example.fhirdummy.controller.ProfileValidation;
+import org.example.fhirdummy.mapper.PatientMapper;
+import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.r5.model.Patient;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.time.format.DateTimeParseException;
+
+@Service
+public class PatientService {
+    private final PatientDataClient client;
+    private final PatientMapper mapper;
+    private final FhirValidator validator;
+
+    public PatientService(PatientDataClient client, PatientMapper mapper, FhirValidator validator) {
+        this.client = client;
+        this.mapper = mapper;
+        this.validator = validator;
+    }
+
+    public Patient getCiedPatient(String customerId, String merlinNetId) {
+        var source = client.getPatient(customerId, merlinNetId);
+        Patient patient;
+        try {
+            patient = mapper.toFhir(source);
+        } catch (IllegalArgumentException | DateTimeParseException | FHIRException exception) {
+            throw new ResponseStatusException(HttpStatus.BAD_GATEWAY, "Invalid patient data from the data service", exception);
+        }
+
+        patient.getMeta().addProfile(ProfileValidation.PATIENT_PROFILE);
+        if (!validator.validateWithResult(patient).isSuccessful()) {
+            throw new ResponseStatusException(HttpStatus.BAD_GATEWAY, "Mapped Patient does not conform to the CIED Patient profile");
+        }
+        return patient;
+    }
+}

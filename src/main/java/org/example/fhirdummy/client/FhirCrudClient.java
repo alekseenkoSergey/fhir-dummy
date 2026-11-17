@@ -9,6 +9,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+@Deprecated
 final class FhirCrudClient<T extends Resource> {
     private final IGenericClient client;
     private final Class<T> resourceType;
