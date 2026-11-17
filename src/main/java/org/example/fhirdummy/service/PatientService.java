@@ -24,7 +24,7 @@ public class PatientService {
         this.validator = validator;
     }
 
-    public Patient getCiedPatient(String customerId, String patientId) {
+    public Patient getPatient(String customerId, String patientId) {
         var source = client.getPatient(customerId, patientId);
         Patient patient;
         try {

@@ -3,7 +3,6 @@ package org.example.fhirdummy.controller;
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.validation.FhirValidator;
 import java.util.regex.Pattern;
-import org.example.fhirdummy.client.FhirResourceClient;
 import org.example.fhirdummy.service.DeviceService;
 import org.hl7.fhir.r5.model.Device;
 import org.hl7.fhir.r5.model.OperationOutcome;
@@ -18,31 +17,22 @@ public class DeviceController {
     private static final MediaType FHIR_JSON_MEDIA_TYPE = MediaType.valueOf(FHIR_JSON);
     private static final Pattern COMPOSITE_ID = Pattern.compile("[^\\s:/]+:[^\\s:/]+");
 
-    private final FhirResourceClient resourceClient;
     private final FhirContext context;
     private final FhirValidator validator;
     private final DeviceService deviceService;
 
     public DeviceController(
-            FhirResourceClient resourceClient,
             FhirContext context,
             FhirValidator validator,
             DeviceService deviceService
     ) {
-        this.resourceClient = resourceClient;
         this.context = context;
         this.validator = validator;
         this.deviceService = deviceService;
     }
 
-    @GetMapping(value = "/device_public_example", produces = FHIR_JSON)
-    public String getExample() {
-        Device device = resourceClient.getExampleResource(Device.class);
-        return context.newJsonParser().encodeResourceToString(device);
-    }
-
     @GetMapping(value = "/Device/{id}", produces = FHIR_JSON)
-    public ResponseEntity<String> getCiedDevice(
+    public ResponseEntity<String> getDevice(
             @PathVariable String id,
             @RequestParam(name = "_profile", defaultValue = ProfileValidation.DEVICE_PROFILE) String profile
     ) {

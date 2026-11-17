@@ -3,7 +3,6 @@ package org.example.fhirdummy.controller;
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.validation.FhirValidator;
 import java.util.regex.Pattern;
-import org.example.fhirdummy.client.FhirResourceClient;
 import org.example.fhirdummy.service.PatientService;
 import org.hl7.fhir.r5.model.OperationOutcome;
 import org.hl7.fhir.r5.model.Patient;
@@ -18,27 +17,18 @@ public class PatientController {
     private static final MediaType FHIR_JSON_MEDIA_TYPE = MediaType.valueOf(FHIR_JSON);
     private static final Pattern COMPOSITE_ID = Pattern.compile("[^\\s:/]+:[^\\s:/]+");
 
-    private final FhirResourceClient resourceClient;
     private final FhirContext context;
     private final FhirValidator validator;
     private final PatientService patientService;
 
     public PatientController(
-            FhirResourceClient resourceClient,
             FhirContext context,
             FhirValidator validator,
             PatientService patientService
     ) {
-        this.resourceClient = resourceClient;
         this.context = context;
         this.validator = validator;
         this.patientService = patientService;
-    }
-
-    @GetMapping(value = "/patient_public_example", produces = FHIR_JSON)
-    public String getExample() {
-        Patient patient = resourceClient.getExampleResource(Patient.class);
-        return context.newJsonParser().encodeResourceToString(patient);
     }
 
     @GetMapping(value = "/Patient/{id}", produces = FHIR_JSON)
@@ -59,7 +49,7 @@ public class PatientController {
         Patient patient;
         try {
             String[] ids = id.split(":", 2);
-            patient = patientService.getCiedPatient(ids[0], ids[1]);
+            patient = patientService.getPatient(ids[0], ids[1]);
         } catch (ResponseStatusException exception) {
             var code = exception.getStatusCode().value() == HttpStatus.NOT_FOUND.value()
                     ? OperationOutcome.IssueType.NOTFOUND
