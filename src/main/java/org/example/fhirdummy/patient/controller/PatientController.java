@@ -1,9 +1,10 @@
-package org.example.fhirdummy.controller;
+package org.example.fhirdummy.patient.controller;
 
 import ca.uhn.fhir.context.FhirContext;
-import ca.uhn.fhir.validation.FhirValidator;
 import java.util.regex.Pattern;
-import org.example.fhirdummy.service.PatientService;
+
+import org.example.fhirdummy.utility.ProfileValidation;
+import org.example.fhirdummy.patient.service.PatientService;
 import org.hl7.fhir.r5.model.OperationOutcome;
 import org.hl7.fhir.r5.model.Patient;
 import org.springframework.http.*;
@@ -18,16 +19,10 @@ public class PatientController {
     private static final Pattern COMPOSITE_ID = Pattern.compile("[^\\s:/]+:[^\\s:/]+");
 
     private final FhirContext context;
-    private final FhirValidator validator;
     private final PatientService patientService;
 
-    public PatientController(
-            FhirContext context,
-            FhirValidator validator,
-            PatientService patientService
-    ) {
+    public PatientController(FhirContext context, PatientService patientService) {
         this.context = context;
-        this.validator = validator;
         this.patientService = patientService;
     }
 
@@ -59,12 +54,6 @@ public class PatientController {
 
         return ResponseEntity.ok().cacheControl(CacheControl.noStore())
                 .contentType(FHIR_JSON_MEDIA_TYPE).body(context.newJsonParser().encodeResourceToString(patient));
-    }
-
-    @PostMapping(value = "/patient/validate", consumes = {"application/json", FHIR_JSON},
-            produces = "application/json")
-    public ResponseEntity<ProfileValidation.Response> validate(@RequestBody String body) {
-        return ProfileValidation.validate(validator, body, ProfileValidation.PATIENT_PROFILE);
     }
 
     private ResponseEntity<String> outcome(

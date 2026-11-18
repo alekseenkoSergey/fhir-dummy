@@ -1,7 +1,8 @@
-package org.example.fhirdummy.controller;
+package org.example.fhirdummy.capabilitystatement.controller;
 
 import ca.uhn.fhir.context.FhirContext;
-import org.example.fhirdummy.dto.CapabilityStatementNarrative;
+import org.example.fhirdummy.capabilitystatement.dto.CapabilityStatementNarrative;
+import org.example.fhirdummy.utility.ProfileValidation;
 import org.hl7.fhir.r5.model.CapabilityStatement;
 import org.hl7.fhir.r5.model.CapabilityStatement.RestfulCapabilityMode;
 import org.hl7.fhir.r5.model.CapabilityStatement.TypeRestfulInteraction;

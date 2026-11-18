@@ -1,24 +1,21 @@
-package org.example.fhirdummy.service;
+package org.example.fhirdummy.device.service;
 
 import ca.uhn.fhir.validation.FhirValidator;
-import org.example.fhirdummy.client.PatientDataClient;
-import org.example.fhirdummy.controller.ProfileValidation;
-import org.example.fhirdummy.mapper.DeviceMapper;
+import org.example.fhirdummy.emulator.client.DataServiceClient;
+import org.example.fhirdummy.utility.ProfileValidation;
+import org.example.fhirdummy.device.mapper.DeviceMapper;
 import org.hl7.fhir.r5.model.Device;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.nio.charset.StandardCharsets;
-import java.util.UUID;
-
 @Service
 public class DeviceService {
-    private final PatientDataClient client;
+    private final DataServiceClient client;
     private final DeviceMapper mapper;
     private final FhirValidator validator;
 
-    public DeviceService(PatientDataClient client, DeviceMapper mapper, FhirValidator validator) {
+    public DeviceService(DataServiceClient client, DeviceMapper mapper, FhirValidator validator) {
         this.client = client;
         this.mapper = mapper;
         this.validator = validator;

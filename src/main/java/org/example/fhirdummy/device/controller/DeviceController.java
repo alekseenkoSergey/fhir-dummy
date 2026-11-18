@@ -1,9 +1,11 @@
-package org.example.fhirdummy.controller;
+package org.example.fhirdummy.device.controller;
 
 import ca.uhn.fhir.context.FhirContext;
-import ca.uhn.fhir.validation.FhirValidator;
+
 import java.util.regex.Pattern;
-import org.example.fhirdummy.service.DeviceService;
+
+import org.example.fhirdummy.utility.ProfileValidation;
+import org.example.fhirdummy.device.service.DeviceService;
 import org.hl7.fhir.r5.model.Device;
 import org.hl7.fhir.r5.model.OperationOutcome;
 import org.springframework.http.*;
@@ -18,16 +20,10 @@ public class DeviceController {
     private static final Pattern COMPOSITE_ID = Pattern.compile("[^\\s:/]+:[^\\s:/]+");
 
     private final FhirContext context;
-    private final FhirValidator validator;
     private final DeviceService deviceService;
 
-    public DeviceController(
-            FhirContext context,
-            FhirValidator validator,
-            DeviceService deviceService
-    ) {
+    public DeviceController(FhirContext context, DeviceService deviceService) {
         this.context = context;
-        this.validator = validator;
         this.deviceService = deviceService;
     }
 
@@ -56,18 +52,6 @@ public class DeviceController {
                     : OperationOutcome.IssueType.TRANSIENT;
             return outcome(exception.getStatusCode(), code, exception.getReason());
         }
-    }
-
-    @PostMapping(value = "/device/validate", consumes = {"application/json", FHIR_JSON},
-            produces = "application/json")
-    public ResponseEntity<ProfileValidation.Response> validate(@RequestBody String body) {
-        return ProfileValidation.validate(validator, body, ProfileValidation.DEVICE_PROFILE);
-    }
-
-    @PostMapping(value = "/device/validate/monitor", consumes = {"application/json", FHIR_JSON},
-            produces = "application/json")
-    public ResponseEntity<ProfileValidation.Response> validateMonitor(@RequestBody String body) {
-        return ProfileValidation.validate(validator, body, ProfileValidation.MONITOR_PROFILE);
     }
 
     private ResponseEntity<String> outcome(HttpStatusCode status, OperationOutcome.IssueType code, String diagnostics) {

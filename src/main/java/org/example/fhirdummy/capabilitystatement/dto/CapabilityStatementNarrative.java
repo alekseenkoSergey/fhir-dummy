@@ -1,4 +1,4 @@
-package org.example.fhirdummy.dto;
+package org.example.fhirdummy.capabilitystatement.dto;
 
 import org.hl7.fhir.r5.model.CapabilityStatement;
 import org.hl7.fhir.utilities.xhtml.NodeType;

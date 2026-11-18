@@ -1,5 +1,6 @@
-package org.example.fhirdummy.mapper;
+package org.example.fhirdummy.patient.mapper;
 
+import org.example.fhirdummy.utility.JsonText;
 import org.hl7.fhir.r5.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r5.model.ContactPoint.ContactPointUse;
 import org.hl7.fhir.r5.model.DateType;
@@ -17,7 +18,7 @@ public class PatientMapper {
         if (source == null || !source.isObject()) {
             throw new IllegalArgumentException("Expected a patient object");
         }
-        String id = text(source, "merlinNetId");
+        String id = JsonText.optional(source, "merlinNetId");
         if (id == null) {
             throw new IllegalArgumentException("Patient identifier is required");
         }
@@ -26,7 +27,7 @@ public class PatientMapper {
         patient.setId(id);
         patient.addIdentifier().setValue(id);
 
-        String status = text(source, "patientStatus");
+        String status = JsonText.optional(source, "patientStatus");
         if (status != null) {
             patient.setActive(switch (status.toLowerCase(Locale.ROOT)) {
                 case "active" -> true;
@@ -35,41 +36,29 @@ public class PatientMapper {
             });
         }
 
-        var name = patient.getNameFirstRep().setFamily(text(source, "lastName"));
-        String firstName = text(source, "firstName");
+        var name = patient.getNameFirstRep().setFamily(JsonText.optional(source, "lastName"));
+        String firstName = JsonText.optional(source, "firstName");
         if (firstName != null) {
             name.addGiven(firstName);
         }
-        String middleName = text(source, "middleName");
+        String middleName = JsonText.optional(source, "middleName");
         if (middleName != null) {
             name.addGiven(middleName);
         }
 
-        String gender = text(source, "gender");
+        String gender = JsonText.optional(source, "gender");
         patient.setGender(gender == null ? AdministrativeGender.UNKNOWN
                 : AdministrativeGender.fromCode(gender.toLowerCase(Locale.ROOT)));
 
-        String phone = text(source, "phone");
+        String phone = JsonText.optional(source, "phone");
         if (phone != null) {
             patient.addTelecom().setSystem(ContactPointSystem.PHONE).setUse(ContactPointUse.MOBILE).setValue(phone);
         }
 
-        String birthDate = text(source, "dateOfBirth");
+        String birthDate = JsonText.optional(source, "dateOfBirth");
         if (birthDate != null) {
             patient.setBirthDateElement(new DateType(LocalDate.parse(birthDate).toString()));
         }
         return patient;
-    }
-
-    private static String text(JsonNode source, String field) {
-        JsonNode value = source.path(field);
-        if (value.isMissingNode() || value.isNull()) {
-            return null;
-        }
-        if (!value.isString()) {
-            throw new IllegalArgumentException("Expected text for field " + field);
-        }
-        String text = value.asString().trim();
-        return text.isEmpty() ? null : text;
     }
 }

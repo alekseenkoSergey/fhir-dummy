@@ -4,7 +4,7 @@ spring:
 
 fhir:
   public-base-url: ${FHIR_PUBLIC_BASE_URL:}
-  patient-data:
+  data-service:
     base-url: ${DATA_BASE_URL:http://localhost:${server.port:8080}}
   cardx-cied:
     dependencies:

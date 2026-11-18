@@ -1,9 +1,9 @@
-package org.example.fhirdummy.service;
+package org.example.fhirdummy.patient.service;
 
 import ca.uhn.fhir.validation.FhirValidator;
-import org.example.fhirdummy.client.PatientDataClient;
-import org.example.fhirdummy.controller.ProfileValidation;
-import org.example.fhirdummy.mapper.PatientMapper;
+import org.example.fhirdummy.emulator.client.DataServiceClient;
+import org.example.fhirdummy.utility.ProfileValidation;
+import org.example.fhirdummy.patient.mapper.PatientMapper;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r5.model.Patient;
 import org.springframework.http.HttpStatus;
@@ -14,11 +14,11 @@ import java.time.format.DateTimeParseException;
 
 @Service
 public class PatientService {
-    private final PatientDataClient client;
+    private final DataServiceClient client;
     private final PatientMapper mapper;
     private final FhirValidator validator;
 
-    public PatientService(PatientDataClient client, PatientMapper mapper, FhirValidator validator) {
+    public PatientService(DataServiceClient client, PatientMapper mapper, FhirValidator validator) {
         this.client = client;
         this.mapper = mapper;
         this.validator = validator;
