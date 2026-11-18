@@ -1,4 +1,4 @@
-package org.example.fhirdummy.emulator.controller;
+package org.example.fhirdummy.controller;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

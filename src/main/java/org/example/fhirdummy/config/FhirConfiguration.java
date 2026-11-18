@@ -1,4 +1,4 @@
-package org.example.fhirdummy.configuration;
+package org.example.fhirdummy.config;
 
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.context.support.DefaultProfileValidationSupport;

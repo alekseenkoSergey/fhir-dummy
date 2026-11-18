@@ -1,10 +1,10 @@
-package org.example.fhirdummy.patient.controller;
+package org.example.fhirdummy.controller;
 
 import ca.uhn.fhir.context.FhirContext;
 import java.util.regex.Pattern;
 
 import org.example.fhirdummy.utility.ProfileValidation;
-import org.example.fhirdummy.patient.service.PatientService;
+import org.example.fhirdummy.service.PatientService;
 import org.hl7.fhir.r5.model.OperationOutcome;
 import org.hl7.fhir.r5.model.Patient;
 import org.springframework.http.*;

@@ -1,7 +1,7 @@
-package org.example.fhirdummy.observation.controller;
+package org.example.fhirdummy.controller;
 
 import ca.uhn.fhir.context.FhirContext;
-import org.example.fhirdummy.observation.service.ObservationService;
+import org.example.fhirdummy.service.ObservationService;
 import org.hl7.fhir.r5.model.OperationOutcome;
 import org.springframework.http.CacheControl;
 import org.springframework.http.HttpStatus;

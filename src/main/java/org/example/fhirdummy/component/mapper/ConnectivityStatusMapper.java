@@ -1,4 +1,4 @@
-package org.example.fhirdummy.observation.mapper;
+package org.example.fhirdummy.component.mapper;
 
 import org.example.fhirdummy.utility.JsonText;
 import org.hl7.fhir.exceptions.FHIRException;

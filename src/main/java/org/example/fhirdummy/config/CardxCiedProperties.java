@@ -1,4 +1,4 @@
-package org.example.fhirdummy.configuration;
+package org.example.fhirdummy.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

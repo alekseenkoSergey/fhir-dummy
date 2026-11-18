@@ -1,9 +1,9 @@
-package org.example.fhirdummy.observation.service;
+package org.example.fhirdummy.service;
 
 import ca.uhn.fhir.validation.FhirValidator;
-import org.example.fhirdummy.emulator.client.DataServiceClient;
+import org.example.fhirdummy.client.DataServiceClient;
 import org.example.fhirdummy.utility.ProfileValidation;
-import org.example.fhirdummy.observation.mapper.ConnectivityStatusMapper;
+import org.example.fhirdummy.component.mapper.ConnectivityStatusMapper;
 import org.hl7.fhir.r5.model.Bundle;
 import org.hl7.fhir.r5.model.Bundle.SearchEntryMode;
 import org.hl7.fhir.r5.model.Device;

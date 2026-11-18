@@ -1,9 +1,9 @@
-package org.example.fhirdummy.device.service;
+package org.example.fhirdummy.service;
 
 import ca.uhn.fhir.validation.FhirValidator;
-import org.example.fhirdummy.emulator.client.DataServiceClient;
+import org.example.fhirdummy.client.DataServiceClient;
 import org.example.fhirdummy.utility.ProfileValidation;
-import org.example.fhirdummy.device.mapper.DeviceMapper;
+import org.example.fhirdummy.component.mapper.DeviceMapper;
 import org.hl7.fhir.r5.model.Device;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

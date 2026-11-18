@@ -1,7 +1,7 @@
-package org.example.fhirdummy.capabilitystatement.controller;
+package org.example.fhirdummy.controller;
 
 import ca.uhn.fhir.context.FhirContext;
-import org.example.fhirdummy.capabilitystatement.dto.CapabilityStatementNarrative;
+import org.example.fhirdummy.dtos.CapabilityStatementDto;
 import org.example.fhirdummy.utility.ProfileValidation;
 import org.hl7.fhir.r5.model.CapabilityStatement;
 import org.hl7.fhir.r5.model.CapabilityStatement.RestfulCapabilityMode;
@@ -76,7 +76,7 @@ public class MetadataController {
                 .addSupportedProfile(ProfileValidation.CONNECTIVITY_PROFILE)
                 .setDocumentation("CIED connectivity observations are planned when patient device data provides the required connectivity details.");
 
-        var narrative = CapabilityStatementNarrative.render(statement);
+        var narrative = CapabilityStatementDto.render(statement);
         statement.setText(new Narrative(NarrativeStatus.GENERATED, narrative));
         metadataJson = context.newJsonParser().encodeResourceToString(statement);
         metadataHtml = """

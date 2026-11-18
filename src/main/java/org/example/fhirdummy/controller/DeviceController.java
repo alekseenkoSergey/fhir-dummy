@@ -1,11 +1,11 @@
-package org.example.fhirdummy.device.controller;
+package org.example.fhirdummy.controller;
 
 import ca.uhn.fhir.context.FhirContext;
 
 import java.util.regex.Pattern;
 
 import org.example.fhirdummy.utility.ProfileValidation;
-import org.example.fhirdummy.device.service.DeviceService;
+import org.example.fhirdummy.service.DeviceService;
 import org.hl7.fhir.r5.model.Device;
 import org.hl7.fhir.r5.model.OperationOutcome;
 import org.springframework.http.*;

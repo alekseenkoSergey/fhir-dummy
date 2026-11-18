@@ -1,9 +1,9 @@
-package org.example.fhirdummy.patient.service;
+package org.example.fhirdummy.service;
 
 import ca.uhn.fhir.validation.FhirValidator;
-import org.example.fhirdummy.emulator.client.DataServiceClient;
+import org.example.fhirdummy.client.DataServiceClient;
 import org.example.fhirdummy.utility.ProfileValidation;
-import org.example.fhirdummy.patient.mapper.PatientMapper;
+import org.example.fhirdummy.component.mapper.PatientMapper;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r5.model.Patient;
 import org.springframework.http.HttpStatus;

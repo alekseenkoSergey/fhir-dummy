@@ -1,4 +1,4 @@
-package org.example.fhirdummy.emulator.client;
+package org.example.fhirdummy.client;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
