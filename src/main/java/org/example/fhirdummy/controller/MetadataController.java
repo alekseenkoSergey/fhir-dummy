@@ -1,7 +1,11 @@
 package org.example.fhirdummy.controller;
 
 import ca.uhn.fhir.context.FhirContext;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Locale;
 import org.example.fhirdummy.dtos.CapabilityStatementDto;
+import static org.example.fhirdummy.utility.Constants.ID_DELIMITER;
 import org.example.fhirdummy.utility.ProfileValidation;
 import org.hl7.fhir.r5.model.CapabilityStatement;
 import org.hl7.fhir.r5.model.CapabilityStatement.RestfulCapabilityMode;
@@ -14,19 +18,11 @@ import org.hl7.fhir.r5.model.Narrative;
 import org.hl7.fhir.r5.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.InvalidMediaTypeException;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Comparator;
-import java.util.List;
-import java.util.Locale;
 
 @RestController
 public class MetadataController {
@@ -57,7 +53,8 @@ public class MetadataController {
         var patient = server.addResource()
                 .setType("Patient")
                 .addSupportedProfile(ProfileValidation.PATIENT_PROFILE)
-                .setDocumentation("GET Patient/{clinicId:patientId} returns a Patient mapped from the patient data service. "
+                .setDocumentation("GET Patient/{clinicId" + ID_DELIMITER
+                        + "patientId} returns a Patient mapped from the patient data service. "
                         + "The optional _profile parameter defaults to the CIED Patient profile. "
                         + "Listing patients by clinic is planned.");
         patient.addInteraction().setCode(TypeRestfulInteraction.READ);
@@ -67,7 +64,8 @@ public class MetadataController {
                 .setType("Device")
                 .addSupportedProfile(ProfileValidation.DEVICE_PROFILE)
                 .addSupportedProfile(ProfileValidation.MONITOR_PROFILE)
-                .setDocumentation("GET Device/{clinicId:patientId} returns the first device in the patient's device list. "
+                .setDocumentation("GET Device/{clinicId" + ID_DELIMITER + "patientId"
+                        + ID_DELIMITER + "deviceId} returns the matching device from the patient's device list. "
                         + "The optional _profile parameter defaults to the CIED Device profile.")
                 .addInteraction().setCode(TypeRestfulInteraction.READ);
 

@@ -24,11 +24,11 @@ public class PatientService {
         this.validator = validator;
     }
 
-    public Patient getPatient(String customerId, String patientId) {
-        var source = client.getPatient(customerId, patientId);
+    public Patient getPatient(String clinicId, String patientId) {
+        var source = client.getPatient(clinicId, patientId);
         Patient patient;
         try {
-            patient = mapper.toFhir(source);
+            patient = mapper.toFhir(source, clinicId);
         } catch (IllegalArgumentException | DateTimeParseException | FHIRException exception) {
             throw new ResponseStatusException(HttpStatus.BAD_GATEWAY, "Invalid patient data from the data service", exception);
         }

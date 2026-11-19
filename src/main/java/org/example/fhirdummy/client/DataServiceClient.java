@@ -18,12 +18,12 @@ public class DataServiceClient {
         client = builder.baseUrl(baseUrl).build();
     }
 
-    public JsonNode getPatient(String customerId, String patientId) {
-        return get("/connectivity/customer/{customerId}/patients/{patientId}", "Patient", customerId, patientId);
+    public JsonNode getPatient(String clinicId, String patientId) {
+        return get("/connectivity/customer/{clinicId}/patients/{patientId}", "Patient", clinicId, patientId);
     }
 
-    public JsonNode getDeviceConnectivity(String customerId) {
-        return get("/connectivity/customer/{customerId}/devices", "Device connectivity data", customerId);
+    public JsonNode getDeviceConnectivity(String clinicId) {
+        return get("/connectivity/customer/{clinicId}/devices", "Device connectivity data", clinicId);
     }
 
     private JsonNode get(String uri, String subject, Object... uriVariables) {

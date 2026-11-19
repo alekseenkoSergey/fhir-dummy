@@ -2,9 +2,9 @@ package org.example.fhirdummy.controller;
 
 import ca.uhn.fhir.context.FhirContext;
 import java.util.regex.Pattern;
-
-import org.example.fhirdummy.utility.ProfileValidation;
 import org.example.fhirdummy.service.PatientService;
+import static org.example.fhirdummy.utility.Constants.ID_DELIMITER;
+import org.example.fhirdummy.utility.ProfileValidation;
 import org.hl7.fhir.r5.model.OperationOutcome;
 import org.hl7.fhir.r5.model.Patient;
 import org.springframework.http.*;
@@ -16,7 +16,8 @@ import org.springframework.web.server.ResponseStatusException;
 public class PatientController {
     private static final String FHIR_JSON = "application/fhir+json";
     private static final MediaType FHIR_JSON_MEDIA_TYPE = MediaType.valueOf(FHIR_JSON);
-    private static final Pattern COMPOSITE_ID = Pattern.compile("[^\\s:/]+:[^\\s:/]+");
+    private static final Pattern COMPOSITE_ID = Pattern.compile(
+            "[A-Za-z0-9.]+" + Pattern.quote(ID_DELIMITER) + "[A-Za-z0-9.]+");
 
     private final FhirContext context;
     private final PatientService patientService;
@@ -34,7 +35,7 @@ public class PatientController {
     ) {
         if (!COMPOSITE_ID.matcher(id).matches()) {
             return outcome(HttpStatus.BAD_REQUEST, OperationOutcome.IssueType.INVALID,
-                    "Expected a composite key in the form clinicId:patientId.");
+                    "Expected a composite key in the form clinicId" + ID_DELIMITER + "patientId.");
         }
         if (!ProfileValidation.PATIENT_PROFILE.equals(profile)) {
             return outcome(HttpStatus.BAD_REQUEST, OperationOutcome.IssueType.INVALID,
@@ -43,7 +44,7 @@ public class PatientController {
 
         Patient patient;
         try {
-            String[] ids = id.split(":", 2);
+            String[] ids = id.split(Pattern.quote(ID_DELIMITER), 2);
             patient = patientService.getPatient(ids[0], ids[1]);
         } catch (ResponseStatusException exception) {
             var code = exception.getStatusCode().value() == HttpStatus.NOT_FOUND.value()

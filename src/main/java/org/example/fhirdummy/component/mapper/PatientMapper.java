@@ -1,5 +1,8 @@
 package org.example.fhirdummy.component.mapper;
 
+import java.time.LocalDate;
+import java.util.Locale;
+import static org.example.fhirdummy.utility.Constants.ID_DELIMITER;
 import org.example.fhirdummy.utility.JsonText;
 import org.hl7.fhir.r5.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r5.model.ContactPoint.ContactPointUse;
@@ -9,21 +12,19 @@ import org.hl7.fhir.r5.model.Patient;
 import org.springframework.stereotype.Component;
 import tools.jackson.databind.JsonNode;
 
-import java.time.LocalDate;
-import java.util.Locale;
-
 @Component
 public class PatientMapper {
-    public Patient toFhir(JsonNode source) {
+    public Patient toFhir(JsonNode source, String clinicId) {
         if (source == null || !source.isObject()) {
             throw new IllegalArgumentException("Expected a patient object");
         }
-        String id = JsonText.optional(source, "merlinNetId");
-        if (id == null) {
+        String merlinNetId = JsonText.optional(source, "merlinNetId");
+        if (merlinNetId == null) {
             throw new IllegalArgumentException("Patient identifier is required");
         }
 
         var patient = new Patient();
+        String id = clinicId + ID_DELIMITER + merlinNetId;
         patient.setId(id);
         patient.addIdentifier().setValue(id);
 

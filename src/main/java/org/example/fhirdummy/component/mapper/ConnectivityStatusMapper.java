@@ -1,34 +1,20 @@
 package org.example.fhirdummy.component.mapper;
 
-import org.example.fhirdummy.utility.JsonText;
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.r5.model.Address;
-import org.hl7.fhir.r5.model.Bundle;
-import org.hl7.fhir.r5.model.Bundle.BundleType;
-import org.hl7.fhir.r5.model.Bundle.SearchEntryMode;
-import org.hl7.fhir.r5.model.CodeableConcept;
-import org.hl7.fhir.r5.model.Coding;
-import org.hl7.fhir.r5.model.ContactPoint;
-import org.hl7.fhir.r5.model.DateTimeType;
-import org.hl7.fhir.r5.model.DateType;
-import org.hl7.fhir.r5.model.Device;
-import org.hl7.fhir.r5.model.Enumerations.AdministrativeGender;
-import org.hl7.fhir.r5.model.Enumerations.ObservationStatus;
-import org.hl7.fhir.r5.model.HumanName;
-import org.hl7.fhir.r5.model.Observation;
-import org.hl7.fhir.r5.model.Organization;
-import org.hl7.fhir.r5.model.Patient;
-import org.hl7.fhir.r5.model.Reference;
-import org.hl7.fhir.r5.model.Resource;
-import org.hl7.fhir.r5.model.StringType;
-import org.springframework.stereotype.Component;
-import tools.jackson.databind.JsonNode;
-
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
+import static org.example.fhirdummy.utility.Constants.ID_DELIMITER;
+import org.example.fhirdummy.utility.JsonText;
+import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.r5.model.*;
+import org.hl7.fhir.r5.model.Bundle.BundleType;
+import org.hl7.fhir.r5.model.Bundle.SearchEntryMode;
+import org.hl7.fhir.r5.model.Enumerations.AdministrativeGender;
+import org.hl7.fhir.r5.model.Enumerations.ObservationStatus;
+import org.springframework.stereotype.Component;
+import tools.jackson.databind.JsonNode;
 
 @Component
 public class ConnectivityStatusMapper {
@@ -64,7 +50,7 @@ public class ConnectivityStatusMapper {
             int index = 0;
             for (JsonNode deviceNode : patientNode.path("devices")) {
                 String serial = JsonText.optional(deviceNode, "deviceSerialNum");
-                String deviceId = serial != null ? serial : patientId + "-" + index;
+                String deviceId = serial != null ? serial : patientId + ID_DELIMITER + index;
                 index++;
                 Device device = device(deviceNode, deviceId, serial, monitorId);
                 included.put("Device/" + deviceId, device);
@@ -178,7 +164,7 @@ public class ConnectivityStatusMapper {
                                     String clinicId, String monitorId) {
         boolean forMonitor = monitorId != null;
         Observation obs = new Observation();
-        obs.setId("connectivity-" + deviceId);
+        obs.setId("connectivity" + ID_DELIMITER + deviceId);
         obs.getMeta().addProfile(PROFILE_BASE + "cied-connectivity-status");
         obs.addExtension().setUrl(DEVICE_EXTENSION).setValue(new Reference("Device/" + deviceId));
         obs.setStatus(ObservationStatus.FINAL);

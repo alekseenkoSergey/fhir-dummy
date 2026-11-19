@@ -22,9 +22,11 @@
   },
   "devices": [
     {
+      "deviceId": 123,
       "deviceModelNum": "5500",
       "deviceSerialNum": "200650047",
       "deviceDescription": "Assert-IQ™ EL+ ICM, DM5500",
+      "deviceType": "NGQ",
       "lastConnectionType": "Mobile Communication",
       "lastCommunicationDate": "2026-06-30",
       "lastDeviceCheckDate": "2026-06-29",

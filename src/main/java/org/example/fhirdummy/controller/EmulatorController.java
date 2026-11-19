@@ -22,13 +22,13 @@ public class EmulatorController {
         return sourceFile.exists() ? sourceFile : new ClassPathResource(path);
     }
 
-    @GetMapping(value = "/connectivity/customer/{customerId}/patients/{patientId}",
+    @GetMapping(value = "/connectivity/customer/{clinicId}/patients/{patientId}",
             produces = MediaType.APPLICATION_JSON_VALUE)
     public String getPatient() throws IOException {
         return patientFixture.getContentAsString(StandardCharsets.UTF_8);
     }
 
-    @GetMapping(value = "/connectivity/customer/{customerId}/devices",
+    @GetMapping(value = "/connectivity/customer/{clinicId}/devices",
             produces = MediaType.APPLICATION_JSON_VALUE)
     public String getDeviceConnectivity() throws IOException {
         return clinicFixture.getContentAsString(StandardCharsets.UTF_8);
