@@ -1,6 +1,8 @@
 package org.example.fhirdummy.controller;
 
 import ca.uhn.fhir.context.FhirContext;
+import java.util.Set;
+import java.util.TreeSet;
 import org.example.fhirdummy.service.ObservationService;
 import org.hl7.fhir.r5.model.OperationOutcome;
 import org.springframework.http.CacheControl;
@@ -29,11 +31,20 @@ public class ObservationController {
     }
 
     @GetMapping(value = "/Observation", produces = FHIR_JSON)
-    public ResponseEntity<String> searchConnectivity(@RequestParam String clinicId) {
+    public ResponseEntity<String> searchConnectivity(
+            @RequestParam String clinicId,
+            @RequestParam(name = "_include", required = false, defaultValue = "") Set<String> include
+    ) {
+        if (!ObservationService.SUPPORTED_INCLUDES.containsAll(include)) {
+            return outcome(HttpStatus.BAD_REQUEST, OperationOutcome.IssueType.NOTSUPPORTED,
+                    "Supported _include values: " + String.join(", ", new TreeSet<>(ObservationService.SUPPORTED_INCLUDES)));
+        }
         try {
-            var bundle = observationService.getConnectivityBundle(clinicId);
-            return ResponseEntity.ok().cacheControl(CacheControl.noStore())
-                    .contentType(FHIR_JSON_MEDIA_TYPE).body(context.newJsonParser().encodeResourceToString(bundle));
+            var bundle = observationService.getConnectivityBundle(clinicId, include);
+            return ResponseEntity.ok()
+                    .cacheControl(CacheControl.noStore())
+                    .contentType(FHIR_JSON_MEDIA_TYPE)
+                    .body(context.newJsonParser().encodeResourceToString(bundle));
         } catch (ResponseStatusException exception) {
             var code = exception.getStatusCode().value() == HttpStatus.NOT_FOUND.value()
                     ? OperationOutcome.IssueType.NOTFOUND

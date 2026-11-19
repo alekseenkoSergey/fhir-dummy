@@ -24,4 +24,9 @@ public final class JsonText {
         }
         return text;
     }
+
+    public static String identifier(JsonNode source, String field) {
+        JsonNode value = source.path(field);
+        return value.isIntegralNumber() ? value.toString() : optional(source, field);
+    }
 }
