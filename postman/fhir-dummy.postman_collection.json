@@ -1,105 +1,16 @@
 {
   "info": {
-    "_postman_id": "8ff66c87-8a13-42f5-998a-d32125500dae",
+    "_postman_id": "ba4f4648-ed13-4a80-80d1-c5c5b74bbe96",
     "name": "FHIR Dummy API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "2342964"
+    "description": "Current FHIR R5 proxy endpoints. Select FHIR Dummy Local environment. Patient and Device use composite IDs. Emulator serves source JSON fixtures."
   },
   "item": [
     {
-      "name": "Observation",
+      "name": "Metadata",
       "item": [
         {
-          "name": "Create Observation",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test(\"HTTP 201\", function () { pm.response.to.have.status(201); });",
-                  "if (pm.response.code === 201) {",
-                  "    pm.test(\"FHIR resource type\", function () {",
-                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Observation\");",
-                  "    });",
-                  "}",
-                  "if (pm.response.code === 201) {",
-                  "    const observation = pm.response.json();",
-                  "    pm.test(\"Created Observation has an ID\", function () {",
-                  "        pm.expect(observation.id).to.be.a(\"string\").and.not.empty;",
-                  "    });",
-                  "    if (typeof observation.id === \"string\" && observation.id.length > 0) {",
-                  "        pm.environment.set(\"observationId\", observation.id);",
-                  "    }",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/fhir+json"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"status\": \"final\",\n  \"code\": \"8310-5\",\n  \"value\": 36.6,\n  \"unit\": \"Cel\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{baseUrl}}/fhir/observation",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "observation"
-              ]
-            },
-            "description": "Creates a synthetic temperature Observation. Saves the returned id to the selected environment as observationId."
-          },
-          "response": []
-        },
-        {
-          "name": "Get Observation by ID",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (!pm.environment.get(\"observationId\")) {",
-                  "    throw new Error(\"Run Create Observation first and select the imported environment.\");",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
-                  "if (pm.response.code === 200) {",
-                  "    pm.test(\"FHIR resource type\", function () {",
-                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Observation\");",
-                  "    });",
-                  "}"
-                ]
-              }
-            }
-          ],
+          "name": "Get metadata (FHIR JSON)",
           "request": {
             "method": "GET",
             "header": [
@@ -109,135 +20,23 @@
               }
             ],
             "url": {
-              "raw": "{{baseUrl}}/fhir/observation/{{observationId}}",
+              "raw": "{{baseUrl}}/fhir/metadata?_format=json",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "fhir",
-                "observation",
-                "{{observationId}}"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Update Observation",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "exec": [
-                  "if (!pm.environment.get(\"observationId\")) {",
-                  "    throw new Error(\"Run Create Observation first and select the imported environment.\");",
-                  "}"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
-                  "if (pm.response.code === 200) {",
-                  "    pm.test(\"FHIR resource type\", function () {",
-                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Observation\");",
-                  "    });",
-                  "}"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            }
-          ],
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/fhir+json"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"status\": \"amended\",\n  \"code\": \"8310-5\",\n  \"value\": 38.2,\n  \"unit\": \"Cel\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
+                "metadata"
+              ],
+              "query": [
+                {
+                  "key": "_format",
+                  "value": "json"
                 }
-              }
-            },
-            "url": {
-              "raw": "{{baseUrl}}/fhir/observation/{{observationId}}",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "observation",
-                "{{observationId}}"
               ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Delete Observation",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (!pm.environment.get(\"observationId\")) {",
-                  "    throw new Error(\"Run Create Observation first and select the imported environment.\");",
-                  "}"
-                ]
-              }
             },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test(\"HTTP 204\", function () { pm.response.to.have.status(204); });"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/fhir+json"
-              }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/observation/{{observationId}}",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "observation",
-                "{{observationId}}"
-              ]
-            }
+            "description": ""
           },
-          "response": []
-        },
-        {
-          "name": "Get example Observation",
           "event": [
             {
               "listen": "test",
@@ -247,32 +46,55 @@
                   "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
                   "if (pm.response.code === 200) {",
                   "    pm.test(\"FHIR resource type\", function () {",
-                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Observation\");",
+                  "        pm.expect(pm.response.json().resourceType).to.eql(\"CapabilityStatement\");",
                   "    });",
                   "}"
                 ]
               }
             }
           ],
+          "response": []
+        },
+        {
+          "name": "Get metadata (HTML)",
           "request": {
             "method": "GET",
             "header": [
               {
                 "key": "Accept",
-                "value": "application/fhir+json"
+                "value": "text/html"
               }
             ],
             "url": {
-              "raw": "{{baseUrl}}/fhir/observation",
+              "raw": "{{baseUrl}}/fhir/metadata?_format=html",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "fhir",
-                "observation"
+                "metadata"
+              ],
+              "query": [
+                {
+                  "key": "_format",
+                  "value": "html"
+                }
               ]
-            }
+            },
+            "description": ""
           },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"HTML response\", function () { pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"text/html\"); });"
+                ]
+              }
+            }
+          ],
           "response": []
         }
       ]
@@ -281,96 +103,7 @@
       "name": "Patient",
       "item": [
         {
-          "name": "Create Patient",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test(\"HTTP 201\", function () { pm.response.to.have.status(201); });",
-                  "if (pm.response.code === 201) {",
-                  "    pm.test(\"FHIR resource type\", function () {",
-                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Patient\");",
-                  "    });",
-                  "}",
-                  "if (pm.response.code === 201) {",
-                  "    const patient = pm.response.json();",
-                  "    pm.test(\"Created Patient has an ID\", function () {",
-                  "        pm.expect(patient.id).to.be.a(\"string\").and.not.empty;",
-                  "    });",
-                  "    if (typeof patient.id === \"string\" && patient.id.length > 0) {",
-                  "        pm.environment.set(\"patientId\", patient.id);",
-                  "    }",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/fhir+json"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"family\": \"Ivanenko\",\n  \"given\": \"Olena\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{baseUrl}}/fhir/patient",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "patient"
-              ]
-            },
-            "description": "Creates a synthetic Patient. Saves the returned id to the selected environment as patientId."
-          },
-          "response": []
-        },
-        {
-          "name": "Get Patient by ID",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (!pm.environment.get(\"patientId\")) {",
-                  "    throw new Error(\"Run Create Patient first and select the imported environment.\");",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
-                  "if (pm.response.code === 200) {",
-                  "    pm.test(\"FHIR resource type\", function () {",
-                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Patient\");",
-                  "    });",
-                  "}"
-                ]
-              }
-            }
-          ],
+          "name": "Get Patient by composite ID",
           "request": {
             "method": "GET",
             "header": [
@@ -380,135 +113,24 @@
               }
             ],
             "url": {
-              "raw": "{{baseUrl}}/fhir/patient/{{patientId}}",
+              "raw": "{{baseUrl}}/fhir/Patient/{{clinicId}}-{{patientId}}?_profile=http://hl7.org/fhir/uv/cardx-cied/StructureDefinition/cied-patient",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "fhir",
-                "patient",
-                "{{patientId}}"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Update Patient",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "exec": [
-                  "if (!pm.environment.get(\"patientId\")) {",
-                  "    throw new Error(\"Run Create Patient first and select the imported environment.\");",
-                  "}"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
-                  "if (pm.response.code === 200) {",
-                  "    pm.test(\"FHIR resource type\", function () {",
-                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Patient\");",
-                  "    });",
-                  "}"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            }
-          ],
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/fhir+json"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"family\": \"Kovalenko\",\n  \"given\": \"Olena\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
+                "Patient",
+                "{{clinicId}}-{{patientId}}"
+              ],
+              "query": [
+                {
+                  "key": "_profile",
+                  "value": "http://hl7.org/fhir/uv/cardx-cied/StructureDefinition/cied-patient"
                 }
-              }
-            },
-            "url": {
-              "raw": "{{baseUrl}}/fhir/patient/{{patientId}}",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "patient",
-                "{{patientId}}"
               ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Delete Patient",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (!pm.environment.get(\"patientId\")) {",
-                  "    throw new Error(\"Run Create Patient first and select the imported environment.\");",
-                  "}"
-                ]
-              }
             },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test(\"HTTP 204\", function () { pm.response.to.have.status(204); });"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/fhir+json"
-              }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/patient/{{patientId}}",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "patient",
-                "{{patientId}}"
-              ]
-            }
+            "description": "Reads Patient using clinicId-patientId. Defaults match the patient emulator fixture."
           },
-          "response": []
-        },
-        {
-          "name": "Get example Patient",
           "event": [
             {
               "listen": "test",
@@ -525,25 +147,6 @@
               }
             }
           ],
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/fhir+json"
-              }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/patient",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "patient"
-              ]
-            }
-          },
           "response": []
         }
       ]
@@ -552,96 +155,7 @@
       "name": "Device",
       "item": [
         {
-          "name": "Create Device",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test(\"HTTP 201\", function () { pm.response.to.have.status(201); });",
-                  "if (pm.response.code === 201) {",
-                  "    pm.test(\"FHIR resource type\", function () {",
-                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Device\");",
-                  "    });",
-                  "}",
-                  "if (pm.response.code === 201) {",
-                  "    const device = pm.response.json();",
-                  "    pm.test(\"Created Device has an ID\", function () {",
-                  "        pm.expect(device.id).to.be.a(\"string\").and.not.empty;",
-                  "    });",
-                  "    if (typeof device.id === \"string\" && device.id.length > 0) {",
-                  "        pm.environment.set(\"deviceId\", device.id);",
-                  "    }",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/fhir+json"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"status\": \"active\",\n  \"manufacturer\": \"Acme\",\n  \"modelNumber\": \"X100\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{baseUrl}}/fhir/device",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "device"
-              ]
-            },
-            "description": "Creates a synthetic Device. Saves the returned id to the selected environment as deviceId."
-          },
-          "response": []
-        },
-        {
-          "name": "Get Device by ID",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (!pm.environment.get(\"deviceId\")) {",
-                  "    throw new Error(\"Run Create Device first and select the imported environment.\");",
-                  "}"
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
-                  "if (pm.response.code === 200) {",
-                  "    pm.test(\"FHIR resource type\", function () {",
-                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Device\");",
-                  "    });",
-                  "}"
-                ]
-              }
-            }
-          ],
+          "name": "Get Device by composite ID",
           "request": {
             "method": "GET",
             "header": [
@@ -651,135 +165,24 @@
               }
             ],
             "url": {
-              "raw": "{{baseUrl}}/fhir/device/{{deviceId}}",
+              "raw": "{{baseUrl}}/fhir/Device/{{clinicId}}-{{patientId}}-{{deviceId}}?_profile=http://hl7.org/fhir/uv/cardx-cied/StructureDefinition/cied-device",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "fhir",
-                "device",
-                "{{deviceId}}"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Update Device",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "exec": [
-                  "if (!pm.environment.get(\"deviceId\")) {",
-                  "    throw new Error(\"Run Create Device first and select the imported environment.\");",
-                  "}"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
-                  "if (pm.response.code === 200) {",
-                  "    pm.test(\"FHIR resource type\", function () {",
-                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Device\");",
-                  "    });",
-                  "}"
-                ],
-                "type": "text/javascript",
-                "packages": {},
-                "requests": {}
-              }
-            }
-          ],
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/fhir+json"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"status\": \"inactive\",\n  \"manufacturer\": \"Acme\",\n  \"modelNumber\": \"X100\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
+                "Device",
+                "{{clinicId}}-{{patientId}}-{{deviceId}}"
+              ],
+              "query": [
+                {
+                  "key": "_profile",
+                  "value": "http://hl7.org/fhir/uv/cardx-cied/StructureDefinition/cied-device"
                 }
-              }
-            },
-            "url": {
-              "raw": "{{baseUrl}}/fhir/device/{{deviceId}}",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "device",
-                "{{deviceId}}"
               ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Delete Device",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "if (!pm.environment.get(\"deviceId\")) {",
-                  "    throw new Error(\"Run Create Device first and select the imported environment.\");",
-                  "}"
-                ]
-              }
             },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test(\"HTTP 204\", function () { pm.response.to.have.status(204); });"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/fhir+json"
-              }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/device/{{deviceId}}",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "device",
-                "{{deviceId}}"
-              ]
-            }
+            "description": "Reads the patient device using clinicId-patientId-deviceId. Defaults match the patient emulator fixture."
           },
-          "response": []
-        },
-        {
-          "name": "Get example Device",
           "event": [
             {
               "listen": "test",
@@ -796,50 +199,15 @@
               }
             }
           ],
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/fhir+json"
-              }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/device",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "device"
-              ]
-            }
-          },
           "response": []
         }
       ]
     },
     {
-      "name": "GET",
+      "name": "Observation",
       "item": [
         {
-          "name": "Get Condition",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
-                  "if (pm.response.code === 200) {",
-                  "    pm.test(\"FHIR resource type\", function () {",
-                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Condition\");",
-                  "    });",
-                  "}"
-                ]
-              }
-            }
-          ],
+          "name": "Search connectivity Observations",
           "request": {
             "method": "GET",
             "header": [
@@ -849,36 +217,43 @@
               }
             ],
             "url": {
-              "raw": "{{baseUrl}}/fhir/condition",
+              "raw": "{{baseUrl}}/fhir/Observation?clinicId={{clinicId}}",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "fhir",
-                "condition"
+                "Observation"
+              ],
+              "query": [
+                {
+                  "key": "clinicId",
+                  "value": "{{clinicId}}"
+                }
               ]
-            }
+            },
+            "description": ""
           },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test(\"FHIR resource type\", function () {",
+                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Bundle\");",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ],
           "response": []
         },
         {
-          "name": "Get Encounter",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
-                  "if (pm.response.code === 200) {",
-                  "    pm.test(\"FHIR resource type\", function () {",
-                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Encounter\");",
-                  "    });",
-                  "}"
-                ]
-              }
-            }
-          ],
+          "name": "Search connectivity Observations with Patient",
           "request": {
             "method": "GET",
             "header": [
@@ -888,36 +263,47 @@
               }
             ],
             "url": {
-              "raw": "{{baseUrl}}/fhir/encounter",
+              "raw": "{{baseUrl}}/fhir/Observation?clinicId={{clinicId}}&_include=Observation:subject",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "fhir",
-                "encounter"
+                "Observation"
+              ],
+              "query": [
+                {
+                  "key": "clinicId",
+                  "value": "{{clinicId}}"
+                },
+                {
+                  "key": "_include",
+                  "value": "Observation:subject"
+                }
               ]
-            }
+            },
+            "description": "Returns a searchset Bundle. Resources that fail IG validation are reported as OperationOutcome entries."
           },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test(\"FHIR resource type\", function () {",
+                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Bundle\");",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ],
           "response": []
         },
         {
-          "name": "Get Organization",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
-                  "if (pm.response.code === 200) {",
-                  "    pm.test(\"FHIR resource type\", function () {",
-                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Organization\");",
-                  "    });",
-                  "}"
-                ]
-              }
-            }
-          ],
+          "name": "Search connectivity Observations with monitor",
           "request": {
             "method": "GET",
             "header": [
@@ -927,36 +313,47 @@
               }
             ],
             "url": {
-              "raw": "{{baseUrl}}/fhir/organization",
+              "raw": "{{baseUrl}}/fhir/Observation?clinicId={{clinicId}}&_include=Observation:device",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "fhir",
-                "organization"
+                "Observation"
+              ],
+              "query": [
+                {
+                  "key": "clinicId",
+                  "value": "{{clinicId}}"
+                },
+                {
+                  "key": "_include",
+                  "value": "Observation:device"
+                }
               ]
-            }
+            },
+            "description": "Returns a searchset Bundle. Resources that fail IG validation are reported as OperationOutcome entries."
           },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test(\"FHIR resource type\", function () {",
+                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Bundle\");",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ],
           "response": []
         },
         {
-          "name": "Get Practitioner",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
-                  "if (pm.response.code === 200) {",
-                  "    pm.test(\"FHIR resource type\", function () {",
-                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Practitioner\");",
-                  "    });",
-                  "}"
-                ]
-              }
-            }
-          ],
+          "name": "Search connectivity Observations with CIED device",
           "request": {
             "method": "GET",
             "header": [
@@ -966,16 +363,183 @@
               }
             ],
             "url": {
-              "raw": "{{baseUrl}}/fhir/practitioner",
+              "raw": "{{baseUrl}}/fhir/Observation?clinicId={{clinicId}}&_include=Observation:cied-device",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "fhir",
-                "practitioner"
+                "Observation"
+              ],
+              "query": [
+                {
+                  "key": "clinicId",
+                  "value": "{{clinicId}}"
+                },
+                {
+                  "key": "_include",
+                  "value": "Observation:cied-device"
+                }
               ]
-            }
+            },
+            "description": "Returns a searchset Bundle. Resources that fail IG validation are reported as OperationOutcome entries."
           },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test(\"FHIR resource type\", function () {",
+                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Bundle\");",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Search connectivity Observations with all related resources",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/fhir/Observation?clinicId={{clinicId}}&_include=Observation:subject&_include=Observation:device&_include=Observation:cied-device",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fhir",
+                "Observation"
+              ],
+              "query": [
+                {
+                  "key": "clinicId",
+                  "value": "{{clinicId}}"
+                },
+                {
+                  "key": "_include",
+                  "value": "Observation:subject"
+                },
+                {
+                  "key": "_include",
+                  "value": "Observation:device"
+                },
+                {
+                  "key": "_include",
+                  "value": "Observation:cied-device"
+                }
+              ]
+            },
+            "description": "Returns a searchset Bundle. Resources that fail IG validation are reported as OperationOutcome entries."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test(\"FHIR resource type\", function () {",
+                  "        pm.expect(pm.response.json().resourceType).to.eql(\"Bundle\");",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Emulator",
+      "item": [
+        {
+          "name": "Get patient source data",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/connectivity/customer/{{clinicId}}/patients/{{patientId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "connectivity",
+                "customer",
+                "{{clinicId}}",
+                "patients",
+                "{{patientId}}"
+              ]
+            },
+            "description": "Returns the patient JSON fixture. The emulator serves the same fixture for any path IDs."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"JSON response\", function () { pm.response.json(); });"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Get clinic device connectivity source data",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/connectivity/customer/{{clinicId}}/devices",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "connectivity",
+                "customer",
+                "{{clinicId}}",
+                "devices"
+              ]
+            },
+            "description": "Returns the clinic JSON fixture. The emulator serves the same fixture for any clinicId."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"HTTP 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"JSON response\", function () { pm.response.json(); });"
+                ]
+              }
+            }
+          ],
           "response": []
         }
       ]
