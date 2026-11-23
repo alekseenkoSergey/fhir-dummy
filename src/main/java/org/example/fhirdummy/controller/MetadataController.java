@@ -24,6 +24,11 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Publishes the server's FHIR CapabilityStatement through the metadata endpoint.
+ * It prepares JSON and HTML representations at startup and selects a response using the format parameter
+ * or the request's Accept header.
+ */
 @RestController
 public class MetadataController {
     private static final MediaType FHIR_JSON = MediaType.valueOf("application/fhir+json");

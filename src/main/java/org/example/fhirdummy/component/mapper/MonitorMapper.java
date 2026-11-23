@@ -6,6 +6,11 @@ import org.hl7.fhir.r5.model.Device;
 import org.springframework.stereotype.Component;
 import tools.jackson.databind.JsonNode;
 
+/**
+ * Converts an upstream transmitter object into a FHIR Device representing a monitoring unit.
+ * It requires the transmitter model and serial number and uses them with the clinic and patient IDs
+ * to build the resource identifier.
+ */
 @Component
 public class MonitorMapper {
     public Device toFhir(JsonNode source, String clinicId, String merlinNetId) {

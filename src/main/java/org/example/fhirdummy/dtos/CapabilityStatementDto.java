@@ -5,6 +5,11 @@ import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
+/**
+ * Renders a FHIR CapabilityStatement as a human-readable XHTML narrative.
+ * It summarizes server details, implementation guides, supported resource profiles, and REST interactions
+ * for use in both the resource narrative and the HTML metadata page.
+ */
 public final class CapabilityStatementDto {
     private CapabilityStatementDto() {}
 

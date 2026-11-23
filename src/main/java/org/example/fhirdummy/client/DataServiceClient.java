@@ -10,6 +10,10 @@ import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.server.ResponseStatusException;
 import tools.jackson.databind.JsonNode;
 
+/**
+ * Fetches patient records and clinic device connectivity data from the configured data service.
+ * It returns the responses as JSON and translates upstream failures into HTTP errors that the FHIR API can report.
+ */
 @Component
 public class DataServiceClient {
     private final RestClient client;

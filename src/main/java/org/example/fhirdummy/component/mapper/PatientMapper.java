@@ -12,6 +12,11 @@ import org.hl7.fhir.r5.model.Patient;
 import org.springframework.stereotype.Component;
 import tools.jackson.databind.JsonNode;
 
+/**
+ * Converts an upstream patient record into a FHIR Patient with a clinic-specific composite identifier.
+ * It maps demographics, patient status, and contact details, while rejecting missing patient identifiers
+ * and unsupported or malformed values.
+ */
 @Component
 public class PatientMapper {
     public Patient toFhir(JsonNode source, String clinicId) {

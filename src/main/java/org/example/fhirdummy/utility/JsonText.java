@@ -2,6 +2,11 @@ package org.example.fhirdummy.utility;
 
 import tools.jackson.databind.JsonNode;
 
+/**
+ * Reads text fields from upstream JSON with consistent handling of whitespace and missing values.
+ * It supports optional and required text as well as identifiers represented by strings or integer numbers,
+ * and rejects unexpected field types.
+ */
 public final class JsonText {
     private JsonText() {}
 

@@ -16,6 +16,11 @@ import org.hl7.fhir.r5.model.StringType;
 import org.springframework.stereotype.Component;
 import tools.jackson.databind.JsonNode;
 
+/**
+ * Converts clinic connectivity data into one FHIR Observation for each listed patient device.
+ * It maps connectivity statuses, modifiers, communication dates, and snooze guidance, and adds references
+ * to the patient, clinic, implanted device, and monitor when available.
+ */
 @Component
 public class ConnectivityStatusMapper {
     static final String CARDX = "http://hl7.org/fhir/uv/cardx-cied/CodeSystem/CardXCIED";

@@ -28,6 +28,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import tools.jackson.databind.JsonNode;
 
+/**
+ * Builds a FHIR search bundle from a clinic's device connectivity data.
+ * It validates mapped observations and optionally includes the patients, monitors, and implanted devices they reference.
+ * Resources that fail validation are reported as OperationOutcome entries alongside the accepted results.
+ */
 @Service
 public class ObservationService {
     public static final String INCLUDE_SUBJECT = "Observation:subject";

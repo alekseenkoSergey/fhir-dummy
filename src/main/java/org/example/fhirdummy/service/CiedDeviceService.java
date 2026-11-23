@@ -13,6 +13,10 @@ import tools.jackson.databind.JsonNode;
 
 import java.util.stream.StreamSupport;
 
+/**
+ * Finds a requested device in a patient's upstream record and maps it to a FHIR Device resource.
+ * It validates the result against the CIED Device profile and distinguishes missing devices from invalid upstream data.
+ */
 @Service
 public class CiedDeviceService {
     private final DataServiceClient client;

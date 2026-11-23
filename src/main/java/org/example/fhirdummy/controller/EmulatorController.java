@@ -9,6 +9,11 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Emulates the upstream data service by serving patient and clinic connectivity JSON fixtures.
+ * It prefers files in the source resources directory so local edits are picked up immediately,
+ * and falls back to classpath resources when those files are unavailable.
+ */
 @RestController
 public class EmulatorController {
     private static final String PATIENT_FIXTURE_PATH = "example/fhir-data-patient.json";

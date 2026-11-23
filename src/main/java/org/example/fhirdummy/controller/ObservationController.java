@@ -16,6 +16,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+/**
+ * Exposes the FHIR Observation search endpoint for a clinic's connectivity data.
+ * It checks the requested include values, returns the search bundle as FHIR JSON,
+ * and represents unsupported requests or service failures as OperationOutcome resources.
+ */
 @RestController
 @RequestMapping("/fhir")
 public class ObservationController {

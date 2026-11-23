@@ -11,6 +11,11 @@ import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+/**
+ * Exposes the FHIR Patient read endpoint using a composite clinic and patient identifier.
+ * It checks the identifier and requested profile, delegates retrieval to the patient service,
+ * and returns FHIR JSON with OperationOutcome resources for request or service errors.
+ */
 @RestController
 @RequestMapping("/fhir")
 public class CiedPatientController {

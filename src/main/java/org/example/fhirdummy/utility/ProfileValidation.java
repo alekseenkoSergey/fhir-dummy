@@ -6,6 +6,10 @@ import ca.uhn.fhir.validation.ValidationResult;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Collects the canonical URLs for the CardX CIED implementation guide and its resource profiles.
+ * It also extracts error and fatal validation messages, including their locations, for reporting rejected resources.
+ */
 public final class ProfileValidation {
     public static final String CARDX_CIED_PROFILE_BASE = "http://hl7.org/fhir/uv/cardx-cied/StructureDefinition/";
     public static final String CARDX_CIED_GUIDE =

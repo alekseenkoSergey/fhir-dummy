@@ -12,6 +12,11 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.time.format.DateTimeParseException;
 
+/**
+ * Retrieves a patient from the data service and maps it to a FHIR Patient resource.
+ * It declares the CIED Patient profile and validates the result, reporting invalid upstream data
+ * or a nonconforming resource as a bad gateway error.
+ */
 @Service
 public class CiedPatientService {
     private final DataServiceClient client;

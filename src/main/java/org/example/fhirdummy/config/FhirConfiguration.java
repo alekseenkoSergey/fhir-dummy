@@ -10,6 +10,11 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Configures the shared FHIR R5 context and the validator used by the application.
+ * It loads the CardX CIED implementation guide and its dependencies from the classpath, then combines
+ * them with core profile and terminology support for resource validation.
+ */
 @Configuration
 @EnableConfigurationProperties(CardxCiedProperties.class)
 public class FhirConfiguration {

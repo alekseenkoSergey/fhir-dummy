@@ -13,6 +13,11 @@ import tools.jackson.databind.JsonNode;
 
 import java.util.List;
 
+/**
+ * Converts upstream implanted device data into a FHIR Device resource with a composite identifier.
+ * It resolves device type labels against the CardX CIED value set and marks missing manufacturer,
+ * serial number, model number, and type information with data-absent-reason extensions.
+ */
 @Component
 public class DeviceMapper {
     private static final String DATA_ABSENT_REASON = "http://hl7.org/fhir/StructureDefinition/data-absent-reason";
