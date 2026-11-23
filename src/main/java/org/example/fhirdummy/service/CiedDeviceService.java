@@ -14,12 +14,12 @@ import tools.jackson.databind.JsonNode;
 import java.util.stream.StreamSupport;
 
 @Service
-public class DeviceService {
+public class CiedDeviceService {
     private final DataServiceClient client;
     private final DeviceMapper mapper;
     private final FhirValidator validator;
 
-    public DeviceService(DataServiceClient client, DeviceMapper mapper, FhirValidator validator) {
+    public CiedDeviceService(DataServiceClient client, DeviceMapper mapper, FhirValidator validator) {
         this.client = client;
         this.mapper = mapper;
         this.validator = validator;

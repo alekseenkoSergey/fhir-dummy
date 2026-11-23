@@ -2,7 +2,7 @@ package org.example.fhirdummy.controller;
 
 import ca.uhn.fhir.context.FhirContext;
 import java.util.regex.Pattern;
-import org.example.fhirdummy.service.DeviceService;
+import org.example.fhirdummy.service.CiedDeviceService;
 import static org.example.fhirdummy.utility.Constants.ID_DELIMITER;
 import org.example.fhirdummy.utility.ProfileValidation;
 import org.hl7.fhir.r5.model.Device;
@@ -13,7 +13,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/fhir")
-public class DeviceController {
+public class CiedDeviceController {
     private static final String FHIR_JSON = "application/fhir+json";
     private static final MediaType FHIR_JSON_MEDIA_TYPE = MediaType.valueOf(FHIR_JSON);
     private static final Pattern COMPOSITE_ID = Pattern.compile("[A-Za-z0-9.]+"
@@ -21,11 +21,11 @@ public class DeviceController {
             + Pattern.quote(ID_DELIMITER) + "[A-Za-z0-9.]+");
 
     private final FhirContext context;
-    private final DeviceService deviceService;
+    private final CiedDeviceService ciedDeviceService;
 
-    public DeviceController(FhirContext context, DeviceService deviceService) {
+    public CiedDeviceController(FhirContext context, CiedDeviceService ciedDeviceService) {
         this.context = context;
-        this.deviceService = deviceService;
+        this.ciedDeviceService = ciedDeviceService;
     }
 
     @GetMapping(value = "/Device/{id}", produces = FHIR_JSON)
@@ -45,7 +45,7 @@ public class DeviceController {
 
         try {
             String[] ids = id.split(Pattern.quote(ID_DELIMITER), 3);
-            Device device = deviceService.getCiedDevice(ids[0], ids[1], ids[2]);
+            Device device = ciedDeviceService.getCiedDevice(ids[0], ids[1], ids[2]);
             return ResponseEntity.ok().cacheControl(CacheControl.noStore())
                     .contentType(FHIR_JSON_MEDIA_TYPE).body(context.newJsonParser().encodeResourceToString(device));
         } catch (ResponseStatusException exception) {

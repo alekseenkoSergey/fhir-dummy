@@ -13,12 +13,12 @@ import org.springframework.web.server.ResponseStatusException;
 import java.time.format.DateTimeParseException;
 
 @Service
-public class PatientService {
+public class CiedPatientService {
     private final DataServiceClient client;
     private final PatientMapper mapper;
     private final FhirValidator validator;
 
-    public PatientService(DataServiceClient client, PatientMapper mapper, FhirValidator validator) {
+    public CiedPatientService(DataServiceClient client, PatientMapper mapper, FhirValidator validator) {
         this.client = client;
         this.mapper = mapper;
         this.validator = validator;

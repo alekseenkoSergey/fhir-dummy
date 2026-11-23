@@ -2,7 +2,7 @@ package org.example.fhirdummy.controller;
 
 import ca.uhn.fhir.context.FhirContext;
 import java.util.regex.Pattern;
-import org.example.fhirdummy.service.PatientService;
+import org.example.fhirdummy.service.CiedPatientService;
 import static org.example.fhirdummy.utility.Constants.ID_DELIMITER;
 import org.example.fhirdummy.utility.ProfileValidation;
 import org.hl7.fhir.r5.model.OperationOutcome;
@@ -13,18 +13,18 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/fhir")
-public class PatientController {
+public class CiedPatientController {
     private static final String FHIR_JSON = "application/fhir+json";
     private static final MediaType FHIR_JSON_MEDIA_TYPE = MediaType.valueOf(FHIR_JSON);
     private static final Pattern COMPOSITE_ID = Pattern.compile(
             "[A-Za-z0-9.]+" + Pattern.quote(ID_DELIMITER) + "[A-Za-z0-9.]+");
 
     private final FhirContext context;
-    private final PatientService patientService;
+    private final CiedPatientService ciedPatientService;
 
-    public PatientController(FhirContext context, PatientService patientService) {
+    public CiedPatientController(FhirContext context, CiedPatientService ciedPatientService) {
         this.context = context;
-        this.patientService = patientService;
+        this.ciedPatientService = ciedPatientService;
     }
 
     @GetMapping(value = "/Patient/{id}", produces = FHIR_JSON)
@@ -45,7 +45,7 @@ public class PatientController {
         Patient patient;
         try {
             String[] ids = id.split(Pattern.quote(ID_DELIMITER), 2);
-            patient = patientService.getPatient(ids[0], ids[1]);
+            patient = ciedPatientService.getPatient(ids[0], ids[1]);
         } catch (ResponseStatusException exception) {
             var code = exception.getStatusCode().value() == HttpStatus.NOT_FOUND.value()
                     ? OperationOutcome.IssueType.NOTFOUND
