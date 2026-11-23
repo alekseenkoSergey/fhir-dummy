@@ -34,3 +34,13 @@ permission through the `SONAR_TOKEN` environment variable.
 
 The scanner imports the JaCoCo XML report. Open the project's **Measures** page
 in SonarQube to view **Coverage**.
+
+## Description
+
+- **Controllers:** `CiedPatientController`, `CiedDeviceController`, and `CiedObservationController` expose endpoints for reading patients and implanted devices and searching connectivity observations. They validate request parameters, serialize responses as FHIR JSON, and return errors as `OperationOutcome` resources. `CiedMetadataController` publishes server metadata.
+
+- **Services:** `CiedPatientService`, `CiedDeviceService`, and `CiedObservationService` coordinate data retrieval, mapping, and profile validation. `CiedPatientService` and `CiedDeviceService` return individual validated resources, while `CiedObservationService` builds search bundles with optional referenced patients, monitors, and implanted devices.
+
+- **Mappers:** `CiedPatientMapper`, `CiedDeviceMapper`, `CiedMonitorMapper`, and `CiedConnectivityStatusMapper` translate upstream JSON into FHIR `Patient`, `Device`, and `Observation` resources. They map demographics, device details, connectivity statuses, and communication dates, and create consistent identifiers and resource references.
+
+- **Utilities and metadata rendering:** `Constants`, `Ids`, `JsonText`, and `ProfileValidation` centralize shared constants, identifier construction, JSON field handling, profile URLs, and validation error extraction. `CiedCapabilityStatementDto` generates a readable XHTML representation of the server’s capabilities.
