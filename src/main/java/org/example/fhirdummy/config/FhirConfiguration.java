@@ -23,7 +23,7 @@ public class FhirConfiguration {
     }
 
     @Bean
-    public FhirValidator fhirValidator(
+    public NpmPackageValidationSupport npmPackageValidationSupport(
             FhirContext ctx,
             CardxCiedProperties cardxCied
     ) throws IOException {
@@ -33,7 +33,11 @@ public class FhirConfiguration {
         }
 
         npm.loadPackageFromClasspath(cardxCied.packageLocation());
+        return npm;
+    }
 
+    @Bean
+    public FhirValidator fhirValidator(FhirContext ctx, NpmPackageValidationSupport npm) {
         ValidationSupportChain chain = new ValidationSupportChain(
                 npm,
                 new DefaultProfileValidationSupport(ctx),
