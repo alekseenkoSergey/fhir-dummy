@@ -30,14 +30,14 @@ import org.springframework.web.bind.annotation.RestController;
  * or the request's Accept header.
  */
 @RestController
-public class MetadataController {
+public class CiedMetadataController {
     private static final MediaType FHIR_JSON = MediaType.valueOf("application/fhir+json");
     private static final MediaType HTML_UTF8 = MediaType.valueOf("text/html;charset=UTF-8");
 
     private final String metadataJson;
     private final String metadataHtml;
 
-    public MetadataController(FhirContext context, @Value("${fhir.public-base-url:}") String publicBaseUrl) {
+    public CiedMetadataController(FhirContext context, @Value("${fhir.public-base-url:}") String publicBaseUrl) {
         CapabilityStatement statement = new CapabilityStatement();
         statement.setName("MyCiedProxy");
         statement.setStatus(PublicationStatus.DRAFT);

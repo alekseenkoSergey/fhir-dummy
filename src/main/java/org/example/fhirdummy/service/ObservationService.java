@@ -192,4 +192,8 @@ public class ObservationService {
         }
         return outcome;
     }
+
+    public Bundle getPatientConnectivityBundle(String clinicId, String patientId, Set<String> include) {
+        return null;
+    }
 }
