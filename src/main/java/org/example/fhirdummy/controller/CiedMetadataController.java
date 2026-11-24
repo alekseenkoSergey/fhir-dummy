@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import org.example.fhirdummy.dtos.CapabilityStatementDto;
+import org.example.fhirdummy.service.ObservationService;
 import static org.example.fhirdummy.utility.Constants.ID_DELIMITER;
 import org.example.fhirdummy.utility.ProfileValidation;
 import org.hl7.fhir.r5.model.CapabilityStatement;
@@ -14,6 +15,7 @@ import org.hl7.fhir.r5.model.DateTimeType;
 import org.hl7.fhir.r5.model.Enumerations.CapabilityStatementKind;
 import org.hl7.fhir.r5.model.Enumerations.FHIRVersion;
 import org.hl7.fhir.r5.model.Enumerations.PublicationStatus;
+import org.hl7.fhir.r5.model.Enumerations.SearchParamType;
 import org.hl7.fhir.r5.model.Narrative;
 import org.hl7.fhir.r5.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
@@ -39,45 +41,93 @@ public class CiedMetadataController {
 
     public CiedMetadataController(FhirContext context, @Value("${fhir.public-base-url:}") String publicBaseUrl) {
         CapabilityStatement statement = new CapabilityStatement();
-        statement.setName("MyCiedProxy");
-        statement.setStatus(PublicationStatus.DRAFT);
-        statement.setDateElement(new DateTimeType("2026-11-12"));
+        statement.setName("InterOPFhirCapabilities");
+        statement.setTitle("InterOP FHIR Capabilities");
+        statement.setStatus(PublicationStatus.ACTIVE);
+        statement.setDateElement(new DateTimeType("2026-11-24"));
         statement.setKind(CapabilityStatementKind.INSTANCE);
-        statement.getImplementation().setDescription("My CIED FHIR proxy");
+        statement.setDescription("FHIR R5 API for reading CIED patients and implanted devices, "
+                + "and searching CIED connectivity status observations with optional related resources.");
+        statement.getImplementation().setDescription("CardX - Cardiac Implantable Electronic Devices, IG1");
         if (!publicBaseUrl.isBlank()) {
             statement.getImplementation().setUrl(publicBaseUrl);
         }
         statement.setFhirVersion(FHIRVersion._5_0_0);
-        statement.addFormat("json");
+        statement.addFormat(FHIR_JSON.toString());
         statement.addImplementationGuide(ProfileValidation.CARDX_CIED_GUIDE);
 
         var server = statement.addRest()
                 .setMode(RestfulCapabilityMode.SERVER)
-                .setDocumentation("My patient and CIED API draft contract.");
+                .setDocumentation("All resource paths are relative to the FHIR base URL (/fhir). "
+                        + "Resource responses use application/fhir+json and Cache-Control: no-store. "
+                        + "Supported operations are GET Patient/{id}, GET Device/{id}, and GET Observation "
+                        + "with clinicId and an optional patientId. "
+                        + "The listed profiles are used to validate the mapped resources; the mappings below "
+                        + "do not implement every Must Support element of the IG. "
+                        + "Controller-handled invalid requests return HTTP 400 with OperationOutcome; "
+                        + "missing resources return HTTP 404, and upstream failures retain their HTTP error status "
+                        + "with OperationOutcome (including HTTP 502 for invalid upstream data). "
+                        + "GET metadata provides this CapabilityStatement as FHIR JSON or HTML: "
+                        + "use _format=json or _format=html, or the Accept header; _format takes precedence. "
+                        + "Unsupported metadata representations return HTTP 406.");
 
         var patient = server.addResource()
                 .setType("Patient")
                 .addSupportedProfile(ProfileValidation.PATIENT_PROFILE)
                 .setDocumentation("GET Patient/{clinicId" + ID_DELIMITER
-                        + "patientId} returns a Patient mapped from the patient data service. "
-                        + "The optional _profile parameter defaults to the CIED Patient profile. "
-                        + "Listing patients by clinic is planned.");
+                        + "patientId} returns a CIED Patient. The optional _profile read parameter defaults to "
+                        + ProfileValidation.PATIENT_PROFILE + " and accepts only that canonical URL. "
+                        + "Patients can also be included in Observation search results. "
+                        + "The current mapping covers identifier, name, phone, gender and birth date; "
+                        + "Patient.address is not mapped, including when supplied upstream.");
         patient.addInteraction().setCode(TypeRestfulInteraction.READ);
-        patient.addInteraction().setCode(TypeRestfulInteraction.SEARCHTYPE);
 
-        server.addResource()
+        var device = server.addResource()
                 .setType("Device")
                 .addSupportedProfile(ProfileValidation.DEVICE_PROFILE)
                 .addSupportedProfile(ProfileValidation.MONITOR_PROFILE)
                 .setDocumentation("GET Device/{clinicId" + ID_DELIMITER + "patientId"
-                        + ID_DELIMITER + "deviceId} returns the matching device from the patient's device list. "
-                        + "The optional _profile parameter defaults to the CIED Device profile.")
-                .addInteraction().setCode(TypeRestfulInteraction.READ);
+                        + ID_DELIMITER + "deviceId} returns the CIED implanted in the patient’s body, referenced by the "
+                        + "Observation cied-device extension. The optional _profile read parameter "
+                        + "defaults to " + ProfileValidation.DEVICE_PROFILE + " and accepts only that canonical URL. "
+                        + "The mapping covers manufacturer, serial number, model number and device type; "
+                        + "UDI is not mapped.");
+        device.addInteraction().setCode(TypeRestfulInteraction.READ);
 
-        server.addResource()
+        var observation = server.addResource()
                 .setType("Observation")
                 .addSupportedProfile(ProfileValidation.CONNECTIVITY_PROFILE)
-                .setDocumentation("CIED connectivity observations are planned when patient device data provides the required connectivity details.");
+                .setDocumentation("GET Observation?clinicId={clinicId} searches CIED connectivity status "
+                        + "observations for a clinic. GET Observation?clinicId={clinicId}&patientId={patientId} "
+                        + "restricts the search to a patient in that clinic. Both return a searchset Bundle. "
+                        + "clinicId and patientId are application-specific identifiers, not FHIR references. "
+                        + "Matching Observations use search.mode=match; related resources use search.mode=include. "
+                        + "Resources rejected during mapping or profile validation are reported as OperationOutcome "
+                        + "entries with search.mode=outcome; Bundle.total counts matching Observations only. "
+                        + "Optional _include values may be combined by repeating the parameter: "
+                        + ObservationService.INCLUDE_SUBJECT + " includes the Patient; "
+                        + ObservationService.INCLUDE_DEVICE + " includes the bedside monitor (transmitter) referenced "
+                        + "by Observation.device, conforming to the CIED Monitor profile; "
+                        + ObservationService.INCLUDE_CIED_DEVICE + " includes the CIED implanted in the patient’s body, "
+                        + "referenced by the cied-device extension and conforming to the CIED Device profile. "
+                        + "These are distinct devices represented by the same FHIR resource type, Device. "
+                        + "GET Device/{id} retrieves the implanted CIED. The bedside monitor communicates with "
+                        + "the implanted CIED and is available as an included resource in the Observation search Bundle. "
+                        + "The monitor mapping supplies model and serial number only; manufacturer, type and UDI "
+                        + "are not mapped. Mapped Observation components are connectivity status, connectivity modifier, "
+                        + "last CIED connectivity time, last monitor connectivity time and status guidance; "
+                        + "other profile components are not mapped. "
+                        + "Other _include values return HTTP 400. "
+                        + "No pagination or additional search filters are supported.");
+        observation.addInteraction().setCode(TypeRestfulInteraction.SEARCHTYPE);
+        observation.addSearchParam().setName("clinicId").setType(SearchParamType.STRING)
+                .setDocumentation("Required. Clinic identifier defining the scope of both Observation searches.");
+        observation.addSearchParam().setName("patientId").setType(SearchParamType.STRING)
+                .setDocumentation("Optional. Patient identifier within the required clinic; "
+                        + "when present, selects the patient-specific connectivity search.");
+        observation.addSearchInclude(ObservationService.INCLUDE_SUBJECT);
+        observation.addSearchInclude(ObservationService.INCLUDE_DEVICE);
+        observation.addSearchInclude(ObservationService.INCLUDE_CIED_DEVICE);
 
         var narrative = CapabilityStatementDto.render(statement);
         statement.setText(new Narrative(NarrativeStatus.GENERATED, narrative));
@@ -88,12 +138,17 @@ public class CiedMetadataController {
                 <head>
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1">
-                    <title>FHIR server capabilities</title>
+                    <title>%s</title>
                     <style>
                         body { font: 1rem/1.5 system-ui, sans-serif; margin: 2rem auto; max-width: 68rem; padding: 0 1rem; }
-                        table { width: 100%%; border-collapse: collapse; }
+                        .table-scroll { overflow-x: auto; }
+                        table { width: 100%%; min-width: 36rem; border-collapse: collapse; }
                         th, td { padding: .65rem; border: 1px solid #888; text-align: left; vertical-align: top; }
-                        code { overflow-wrap: anywhere; }
+                        th:first-child { width: 9rem; white-space: nowrap; }
+                        th:nth-child(2) { width: 10rem; white-space: nowrap; }
+                        p, li { overflow-wrap: anywhere; }
+                        td code { white-space: nowrap; }
+                        h3 { margin-top: 2rem; }
                         td ul { margin: 0; padding-inline-start: 1.2em; }
                     </style>
                 </head>
@@ -102,7 +157,7 @@ public class CiedMetadataController {
                     <p><a href="?_format=json">View FHIR JSON</a></p>
                 </body>
                 </html>
-                """.formatted(new XhtmlComposer(XhtmlComposer.XML).compose(narrative));
+                """.formatted(statement.getTitle(), new XhtmlComposer(XhtmlComposer.XML).compose(narrative));
     }
 
     @GetMapping("/fhir/metadata")
