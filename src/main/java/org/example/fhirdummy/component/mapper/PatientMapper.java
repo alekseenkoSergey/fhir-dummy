@@ -14,8 +14,8 @@ import tools.jackson.databind.JsonNode;
 
 /**
  * Converts an upstream patient record into a FHIR Patient with a clinic-specific composite identifier.
- * It maps demographics, patient status, and contact details, while rejecting missing patient identifiers
- * and unsupported or malformed values.
+ * It maps only provided identifiers, demographics, patient status, and contact details,
+ * while rejecting unsupported or malformed values.
  */
 @Component
 public class PatientMapper {
@@ -24,37 +24,43 @@ public class PatientMapper {
             throw new IllegalArgumentException("Expected a patient object");
         }
         String merlinNetId = JsonText.optional(source, "merlinNetId");
-        if (merlinNetId == null) {
-            throw new IllegalArgumentException("Patient identifier is required");
-        }
-
         var patient = new Patient();
-        String id = clinicId + ID_DELIMITER + merlinNetId;
-        patient.setId(id);
-        patient.addIdentifier().setValue(id);
+        if (merlinNetId != null) {
+            String id = clinicId + ID_DELIMITER + merlinNetId;
+            patient.setId(id);
+            patient.addIdentifier().setValue(id);
+        }
 
         String status = JsonText.optional(source, "patientStatus");
         if (status != null) {
-            patient.setActive(switch (status.toLowerCase(Locale.ROOT)) {
-                case "active" -> true;
-                case "inactive" -> false;
-                default -> throw new IllegalArgumentException("Unsupported patient status");
-            });
+            patient.setActive("active".equalsIgnoreCase(status));
         }
 
-        var name = patient.getNameFirstRep().setFamily(JsonText.optional(source, "lastName"));
+        String lastName = JsonText.optional(source, "lastName");
         String firstName = JsonText.optional(source, "firstName");
-        if (firstName != null) {
-            name.addGiven(firstName);
-        }
         String middleName = JsonText.optional(source, "middleName");
-        if (middleName != null) {
-            name.addGiven(middleName);
+        if (lastName != null || firstName != null || middleName != null) {
+            var name = patient.addName();
+            if (lastName != null) {
+                name.setFamily(lastName);
+            }
+            if (firstName != null) {
+                name.addGiven(firstName);
+            }
+            if (middleName != null) {
+                name.addGiven(middleName);
+            }
         }
 
         String gender = JsonText.optional(source, "gender");
-        patient.setGender(gender == null ? AdministrativeGender.UNKNOWN
-                : AdministrativeGender.fromCode(gender.toLowerCase(Locale.ROOT)));
+        if (gender != null) {
+            patient.setGender(switch (gender.toLowerCase(Locale.ROOT)) {
+                case "male" -> AdministrativeGender.MALE;
+                case "female" -> AdministrativeGender.FEMALE;
+                case "unknown" -> AdministrativeGender.UNKNOWN;
+                default -> AdministrativeGender.OTHER;
+            });
+        }
 
         String phone = JsonText.optional(source, "phone");
         if (phone != null) {

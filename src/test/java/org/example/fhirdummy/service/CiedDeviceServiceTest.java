@@ -45,7 +45,7 @@ class CiedDeviceServiceTest {
         var device = new Device();
         device.getMeta().addProfile("existing-profile");
         when(client.getPatient("clinic", "requested-patient")).thenReturn(source);
-        when(mapper.toFhir(selected, "clinic", "canonical-patient", "42")).thenReturn(device);
+        when(mapper.toFhir(selected, "clinic", "requested-patient", "42")).thenReturn(device);
         when(validator.validateWithResult(device)).thenAnswer(invocation -> {
             assertTrue(device.getMeta().hasProfile(ProfileValidation.DEVICE_PROFILE));
             return validation;
@@ -54,7 +54,7 @@ class CiedDeviceServiceTest {
 
         assertSame(device, service.getCiedDevice("clinic", "requested-patient", "42"));
         assertTrue(device.getMeta().hasProfile("existing-profile"));
-        verify(mapper).toFhir(selected, "clinic", "canonical-patient", "42");
+        verify(mapper).toFhir(selected, "clinic", "requested-patient", "42");
         verify(validator).validateWithResult(device);
     }
 
@@ -97,14 +97,20 @@ class CiedDeviceServiceTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"{}", "{\"merlinNetId\":null}", "{\"merlinNetId\":\" \"}", "{\"merlinNetId\":42}"})
-    void translatesInvalidPatientIdentifierToBadGateway(String input) {
+    void usesRequestedPatientIdDespiteMissingOrInvalidUpstreamIdentifier(String input) {
         var source = json.readTree(input);
         ((tools.jackson.databind.node.ObjectNode) source).set("devices", json.readTree("[{\"deviceId\":42}]"));
         stubSource(source);
+        var selected = source.path("devices").get(0);
+        var device = new Device();
+        when(mapper.toFhir(selected, "clinic", "patient", "42")).thenReturn(device);
+        when(validator.validateWithResult(device)).thenReturn(validation);
+        when(validation.isSuccessful()).thenReturn(true);
 
-        var exception = assertFailure(HttpStatus.BAD_GATEWAY, "Invalid device data from the data service");
-        assertInstanceOf(IllegalArgumentException.class, exception.getCause());
-        verifyNoInteractions(mapper, validator);
+        assertSame(device, service.getCiedDevice("clinic", "patient", "42"));
+        assertTrue(device.getMeta().hasProfile(ProfileValidation.DEVICE_PROFILE));
+        verify(mapper).toFhir(selected, "clinic", "patient", "42");
+        verify(validator).validateWithResult(device);
     }
 
     @Test
@@ -142,7 +148,7 @@ class CiedDeviceServiceTest {
     }
 
     private JsonNode validSource() {
-        return json.readTree("{\"merlinNetId\":\"patient\",\"devices\":[{\"deviceId\":42}]}");
+        return json.readTree("{\"devices\":[{\"deviceId\":42}]}");
     }
 
     private void stubSource(JsonNode source) {

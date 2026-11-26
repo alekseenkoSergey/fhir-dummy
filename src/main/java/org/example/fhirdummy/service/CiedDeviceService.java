@@ -4,7 +4,6 @@ import ca.uhn.fhir.validation.FhirValidator;
 import org.example.fhirdummy.client.DataServiceClient;
 import org.example.fhirdummy.utility.ProfileValidation;
 import org.example.fhirdummy.component.mapper.DeviceMapper;
-import org.example.fhirdummy.utility.JsonText;
 import org.hl7.fhir.r5.model.Device;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -50,7 +49,7 @@ public class CiedDeviceService {
                     .findFirst()
                     .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
                             "Requested device not found for the patient"));
-            device = mapper.toFhir(selected, clinicId, JsonText.required(source, "merlinNetId"), deviceId);
+            device = mapper.toFhir(selected, clinicId, patientId, deviceId);
         } catch (IllegalArgumentException exception) {
             throw new ResponseStatusException(HttpStatus.BAD_GATEWAY, "Invalid device data from the data service", exception);
         }

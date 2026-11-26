@@ -7,6 +7,7 @@ import org.hl7.fhir.r5.model.ValueSet;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mock;
@@ -88,13 +89,21 @@ class DeviceMapperTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"Unsupported", "pacemaker"})
-    void rejectsUnknownOrWrongCaseDeviceTypes(String type) {
+    @ValueSource(strings = {"Unsupported", "pacemaker", "MDC_IDC_ENUM_DEV_TYPE_Other"})
+    void mapsUnknownAndExplicitOtherDeviceTypesToOther(String type) {
         var mapper = mapperWithTypes();
         var source = json.createObjectNode().put("deviceType", type);
 
-        assertEquals("Unsupported deviceType: " + type, assertThrows(IllegalArgumentException.class,
-                () -> mapper.toFhir(source, "clinic", "patient", "device")).getMessage());
+        var device = mapper.toFhir(source, "clinic", "patient", "device");
+
+        assertEquals(1, device.getType().size());
+        var mappedType = device.getTypeFirstRep();
+        assertFalse(mappedType.hasExtension());
+        assertEquals(1, mappedType.getCoding().size());
+        var coding = mappedType.getCodingFirstRep();
+        assertEquals("urn:iso:std:iso:11073:10101", coding.getSystem());
+        assertEquals("753670", coding.getCode());
+        assertEquals("MDC_IDC_ENUM_DEV_TYPE_Other", coding.getDisplay());
     }
 
     @ParameterizedTest
@@ -107,17 +116,18 @@ class DeviceMapperTest {
                 () -> mapper.toFhir(source, "clinic", "patient", "device")).getMessage());
     }
 
-    @Test
-    void copiesCodingSoMutatingOneDeviceDoesNotAffectOthers() {
+    @ParameterizedTest
+    @CsvSource({"Pacemaker,pace,urn:first-system", "Unsupported,753670,urn:iso:std:iso:11073:10101"})
+    void copiesCodingSoMutatingOneDeviceDoesNotAffectOthers(String type, String code, String system) {
         var mapper = mapperWithTypes();
-        var source = json.createObjectNode().put("deviceType", "Pacemaker");
+        var source = json.createObjectNode().put("deviceType", type);
         var first = mapper.toFhir(source, "clinic", "patient", "first");
         first.getTypeFirstRep().getCodingFirstRep().setCode("changed");
 
         var second = mapper.toFhir(source, "clinic", "patient", "second");
 
-        assertEquals("pace", second.getTypeFirstRep().getCodingFirstRep().getCode());
-        assertEquals("urn:first-system", second.getTypeFirstRep().getCodingFirstRep().getSystem());
+        assertEquals(code, second.getTypeFirstRep().getCodingFirstRep().getCode());
+        assertEquals(system, second.getTypeFirstRep().getCodingFirstRep().getSystem());
     }
 
     @Test
@@ -126,8 +136,10 @@ class DeviceMapperTest {
         var mapper = new DeviceMapper(validationSupport);
 
         assertUnknown(mapper.toFhir(json.readTree("{}"), "clinic", "patient", "device").getTypeFirstRep());
-        assertThrows(IllegalArgumentException.class, () -> mapper.toFhir(
-                json.createObjectNode().put("deviceType", "Pacemaker"), "clinic", "patient", "device"));
+        assertEquals("Missing MDC_IDC_ENUM_DEV_TYPE_Other in the CIED device types ValueSet",
+                assertThrows(IllegalStateException.class, () -> mapper.toFhir(
+                        json.createObjectNode().put("deviceType", "Pacemaker"),
+                        "clinic", "patient", "device")).getMessage());
     }
 
     private DeviceMapper mapperWithTypes() {
@@ -137,6 +149,8 @@ class DeviceMapperTest {
         first.addConcept().setCode("other").setDisplay("Other");
         valueSet.getCompose().addInclude().setSystem("urn:second-system")
                 .addConcept().setCode("defib").setDisplay("Defibrillator");
+        valueSet.getCompose().addInclude().setSystem("urn:iso:std:iso:11073:10101")
+                .addConcept().setCode("753670").setDisplay("MDC_IDC_ENUM_DEV_TYPE_Other");
         when(validationSupport.fetchValueSet(VALUE_SET)).thenReturn(valueSet);
         return new DeviceMapper(validationSupport);
     }

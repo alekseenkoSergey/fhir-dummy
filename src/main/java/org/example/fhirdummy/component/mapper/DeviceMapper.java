@@ -15,13 +15,15 @@ import java.util.List;
 
 /**
  * Converts upstream implanted device data into a FHIR Device resource with a composite identifier.
- * It resolves device type labels against the CardX CIED value set and marks missing manufacturer,
+ * It resolves device type labels against the CardX CIED value set, uses Other for unrecognized labels,
+ * and marks missing manufacturer,
  * serial number, model number, and type information with data-absent-reason extensions.
  */
 @Component
 public class DeviceMapper {
     private static final String DATA_ABSENT_REASON = "http://hl7.org/fhir/StructureDefinition/data-absent-reason";
     private static final String DEVICE_TYPES_VALUE_SET = "http://hl7.org/fhir/uv/cardx-cied/ValueSet/MDCIDCDeviceTypes";
+    private static final String OTHER_DEVICE_TYPE = "MDC_IDC_ENUM_DEV_TYPE_Other";
     private final List<Coding> deviceTypes;
 
     public DeviceMapper(NpmPackageValidationSupport validationSupport) {
@@ -62,7 +64,11 @@ public class DeviceMapper {
             Coding coding = deviceTypes.stream()
                     .filter(candidate -> deviceType.equals(candidate.getDisplay()))
                     .findFirst()
-                    .orElseThrow(() -> new IllegalArgumentException("Unsupported deviceType: " + deviceType));
+                    .orElseGet(() -> deviceTypes.stream()
+                            .filter(candidate -> OTHER_DEVICE_TYPE.equals(candidate.getDisplay()))
+                            .findFirst()
+                            .orElseThrow(() -> new IllegalStateException("Missing " + OTHER_DEVICE_TYPE
+                                    + " in the CIED device types ValueSet")));
             type.addCoding(coding.copy());
         }
         return device;

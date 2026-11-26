@@ -1,6 +1,6 @@
 package org.example.fhirdummy.component.mapper;
 
-import org.hl7.fhir.exceptions.FHIRException;
+import ca.uhn.fhir.context.FhirContext;
 import org.hl7.fhir.r5.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r5.model.ContactPoint.ContactPointUse;
 import org.hl7.fhir.r5.model.Enumerations.AdministrativeGender;
@@ -61,15 +61,15 @@ class PatientMapperTest {
         var patient = mapper.toFhir(json.readTree(input), "clinic");
 
         assertFalse(patient.hasActive());
-        assertFalse(patient.getNameFirstRep().hasFamily());
-        assertFalse(patient.getNameFirstRep().hasGiven());
-        assertEquals(AdministrativeGender.UNKNOWN, patient.getGender());
+        assertTrue(patient.getName().isEmpty());
+        assertFalse(patient.hasGender());
         assertFalse(patient.hasTelecom());
         assertFalse(patient.hasBirthDate());
     }
 
     @ParameterizedTest
-    @CsvSource({"active,true", "AcTiVe,true", "inactive,false", "INACTIVE,false"})
+    @CsvSource({"Active,true", "active,true", "AcTiVe,true", "inactive,false", "INACTIVE,false",
+            "deleted,false", "unknown,false", "pending,false", "true,false"})
     void mapsStatusIgnoringCase(String status, boolean active) {
         var source = json.readTree("{\"merlinNetId\":\"patient\",\"patientStatus\":\"" + status + "\"}");
 
@@ -98,6 +98,17 @@ class PatientMapperTest {
         assertEquals(value, given.get(0).getValue());
     }
 
+    @Test
+    void mapsFamilyNameWithoutGivenNamesOrIdentifier() {
+        var patient = mapper.toFhir(json.readTree("{\"lastName\":\" Doe \"}"), "clinic");
+
+        assertEquals(1, patient.getName().size());
+        assertEquals("Doe", patient.getNameFirstRep().getFamily());
+        assertFalse(patient.getNameFirstRep().hasGiven());
+        assertFalse(patient.hasId());
+        assertFalse(patient.hasIdentifier());
+    }
+
     @ParameterizedTest
     @NullSource
     @ValueSource(strings = {"null", "[]", "true", "42", "\"patient\""})
@@ -110,24 +121,50 @@ class PatientMapperTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"{}", "{\"merlinNetId\":null}", "{\"merlinNetId\":\" \"}"})
-    void requiresPatientIdentifier(String input) {
-        assertEquals("Patient identifier is required",
-                assertThrows(IllegalArgumentException.class, () -> mapper.toFhir(json.readTree(input), "clinic")).getMessage());
+    void omitsAbsentIdentifierAndStillMapsOtherFields(String input) {
+        var source = (tools.jackson.databind.node.ObjectNode) json.readTree(input);
+        source.put("phone", "+12345");
+
+        var patient = mapper.toFhir(source, "clinic");
+
+        assertFalse(patient.hasId());
+        assertFalse(patient.hasIdentifier());
+        assertEquals("+12345", patient.getTelecomFirstRep().getValue());
     }
 
-    @Test
-    void rejectsUnsupportedStatus() {
-        var source = json.readTree("{\"merlinNetId\":\"patient\",\"patientStatus\":\"deleted\"}");
+    @ParameterizedTest
+    @ValueSource(strings = {"{}",
+            """
+            {"merlinNetId":null,"patientStatus":null,"lastName":null,"firstName":null,
+             "middleName":null,"gender":null,"phone":null,"dateOfBirth":null}
+            """,
+            """
+            {"merlinNetId":" ","patientStatus":" ","lastName":" ","firstName":" ",
+             "middleName":" ","gender":" ","phone":" ","dateOfBirth":" "}
+            """})
+    void omitsAllAbsentFieldsFromPatientAndSerializedResponse(String input) {
+        var patient = mapper.toFhir(json.readTree(input), "clinic");
 
-        assertEquals("Unsupported patient status",
-                assertThrows(IllegalArgumentException.class, () -> mapper.toFhir(source, "clinic")).getMessage());
+        assertFalse(patient.hasId());
+        assertTrue(patient.getIdentifier().isEmpty());
+        assertFalse(patient.hasActive());
+        assertTrue(patient.getName().isEmpty());
+        assertFalse(patient.hasGender());
+        assertTrue(patient.getTelecom().isEmpty());
+        assertFalse(patient.hasBirthDate());
+        var serialized = FhirContext.forR5Cached().newJsonParser().encodeResourceToString(patient);
+        assertEquals(json.readTree("{\"resourceType\":\"Patient\"}"), json.readTree(serialized));
     }
 
-    @Test
-    void rejectsUnsupportedGender() {
-        var source = json.readTree("{\"merlinNetId\":\"patient\",\"gender\":\"unsupported\"}");
+    @ParameterizedTest
+    @ValueSource(strings = {"unsupported", "UNRECOGNIZED", " nonbinary ", "123"})
+    void mapsUnsupportedGenderToOther(String gender) {
+        var source = json.createObjectNode().put("gender", gender);
 
-        assertThrows(FHIRException.class, () -> mapper.toFhir(source, "clinic"));
+        var patient = mapper.toFhir(source, "clinic");
+
+        assertTrue(patient.hasGender());
+        assertEquals(AdministrativeGender.OTHER, patient.getGender());
     }
 
     @ParameterizedTest
